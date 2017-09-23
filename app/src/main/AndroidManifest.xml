@@ -48,6 +48,10 @@
         <activity
             android:name=".CitiesListActivity"
             android:label="全国机场"></activity>
+
+        <activity
+            android:name=".DetailActivity"
+            android:label="认证停车场"></activity>
     </application>
 
 </manifest>

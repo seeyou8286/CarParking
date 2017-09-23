@@ -22,6 +22,20 @@ import static org.junit.Assert.*;
 public class MongoDbConnectionTest {
 
     @Test
+    public void getLocalConnectionTest() {
+
+        MongoClientURI uri = new MongoClientURI(
+                "mongodb://localhost:27017");
+        MongoClient mongoClient = new MongoClient(uri);
+        MongoDatabase database = mongoClient.getDatabase("car");
+        MongoCollection<Document> collection =  database.getCollection("cities");
+        Document document = collection.find().first();
+        System.out.println(document.toJson());
+        List<String> list = (List)document.get("name");
+        System.out.println(list.get(1));
+    }
+
+    @Test
     public void getConnectionTest() {
 
         MongoClientURI uri = new MongoClientURI(
