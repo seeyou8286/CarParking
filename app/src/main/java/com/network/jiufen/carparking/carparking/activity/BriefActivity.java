@@ -1,7 +1,11 @@
 package com.network.jiufen.carparking.carparking.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telecom.Call;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.network.jiufen.carparking.carparking.R;
@@ -22,7 +26,14 @@ public class BriefActivity extends AppCompatActivity{
         CityDetailAdapter cityDetailAdapter = new CityDetailAdapter(BriefActivity.this,R.layout.brief_info,details);
         ListView listView = (ListView)findViewById(R.id.brief_list);
         listView.setAdapter(cityDetailAdapter);
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(details.get(position));
+                Intent intent = new Intent(BriefActivity.this,DetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

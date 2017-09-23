@@ -1,7 +1,6 @@
 package com.network.jiufen.carparking.carparking.adapter;
 
 import android.content.Context;
-import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -32,8 +31,8 @@ public class CityDetailAdapter extends ArrayAdapter<CarParkDetail>{
     public View getView(int position, View convertView, ViewGroup parent) {
         CarParkDetail carParkDetail = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
-        ImageView imageView = view.findViewById(R.id.detail_image);
-        TextView name = view.findViewById(R.id.detail_name);
+        ImageView imageView = view.findViewById(R.id.brief_image);
+        TextView name = view.findViewById(R.id.brief_name);
         TextView points = view.findViewById(R.id.points);
         TextView distance = view.findViewById(R.id.distance);
         TextView monthlySoldOut = view.findViewById(R.id.monthlySoldOut);

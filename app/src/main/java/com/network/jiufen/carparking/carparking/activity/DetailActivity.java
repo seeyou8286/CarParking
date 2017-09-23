@@ -1,7 +1,11 @@
 package com.network.jiufen.carparking.carparking.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.network.jiufen.carparking.carparking.R;
@@ -11,25 +15,35 @@ import com.network.jiufen.carparking.carparking.domain.CarParkDetail;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailActivity extends AppCompatActivity{
-    private List<CarParkDetail> details = new ArrayList<>();
+public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
+    private ImageView detailImage;
+    private Button startBooking;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.brief_list);
-        initDetails();
-        CityDetailAdapter cityDetailAdapter = new CityDetailAdapter(DetailActivity.this,R.layout.brief_info,details);
-        ListView listView = (ListView)findViewById(R.id.brief_list);
-        listView.setAdapter(cityDetailAdapter);
+        setContentView(R.layout.detail_content);
+        detailImage = (ImageView) findViewById(R.id.detail_image);
+        detailImage.setClickable(true);
+        detailImage.setOnClickListener(this);
 
+        startBooking = (Button) findViewById(R.id.startBooking);
+        startBooking.setOnClickListener(this);
     }
 
-
-    private void initDetails()
-    {
-        CarParkDetail carParkDetail = new CarParkDetail("深圳机场",R.drawable.car_park1,"4.8分","距机场直线距离3公里","月销2000单","$18.0均");
-        details.add(carParkDetail);
+    @Override
+    public void onClick(View view) {
+        Intent intent = null;
+        switch (view.getId())
+        {
+            case R.id.detail_image:
+                intent = new Intent(DetailActivity.this,PicViewerActivity.class);
+                break;
+            case R.id.startBooking:
+                intent = new Intent(DetailActivity.this,BookingActivity.class);
+                break;
+        }
+        startActivity(intent);
     }
-
 }

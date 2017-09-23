@@ -18,7 +18,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/startBooking"
+            android:id="@+id/Button01"
             android:text="开始预订"/>
     </TableRow>
 </RelativeLayout>

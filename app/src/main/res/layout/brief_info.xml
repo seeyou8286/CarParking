@@ -3,22 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/detail_image"
+        android:id="@+id/brief_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
-        android:id="@+id/detail_name"
+        android:id="@+id/brief_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/detail_image"
-        android:layout_alignTop="@id/detail_image"
+        android:layout_toRightOf="@id/brief_image"
+        android:layout_alignTop="@id/brief_image"
         android:layout_marginLeft="5dip" />
     <TextView
         android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/detail_image"
-        android:layout_below="@id/detail_name"
+        android:layout_toRightOf="@id/brief_image"
+        android:layout_below="@id/brief_name"
         android:layout_marginLeft="5dip" />
 
     <TextView
@@ -26,14 +26,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/points"
-        android:layout_below="@id/detail_name"
+        android:layout_below="@id/brief_name"
         android:layout_marginLeft="5dip" />
 
     <TextView
         android:id="@+id/distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/detail_image"
+        android:layout_toRightOf="@id/brief_image"
         android:layout_below="@id/points"
         android:layout_marginLeft="5dip" />
 
@@ -41,7 +41,7 @@
         android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/detail_image"
-        android:layout_below="@id/detail_image"
+        android:layout_alignLeft="@id/brief_image"
+        android:layout_below="@id/brief_image"
         android:gravity="right"/>
 </RelativeLayout>

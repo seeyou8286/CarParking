@@ -17,7 +17,6 @@
         android:name="com.mob.MobApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -52,6 +51,17 @@
         <activity
             android:name=".activity.BriefActivity"
             android:label="认证停车场"></activity>
+        <activity
+            android:name=".activity.DetailActivity"
+            android:label="订单确认"></activity>
+        <activity
+            android:name=".activity.PicViewerActivity"
+            android:label="图片"></activity>
+
+        <activity
+            android:name=".activity.BookingActivity"
+            android:label="@string/start_booking"></activity>
+
     </application>
 
 </manifest>
