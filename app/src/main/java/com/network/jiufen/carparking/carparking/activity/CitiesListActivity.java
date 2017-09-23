@@ -1,19 +1,18 @@
-package com.network.jiufen.carparking.carparking;
+package com.network.jiufen.carparking.carparking.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.network.jiufen.carparking.carparking.R;
 
 import org.bson.Document;
 
@@ -38,7 +37,7 @@ public class CitiesListActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 System.out.println(list.get(position));
-                Intent intent = new Intent(CitiesListActivity.this,DetailActivity.class);
+                Intent intent = new Intent(CitiesListActivity.this,BriefActivity.class);
                 startActivity(intent);
             }
         });

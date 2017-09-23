@@ -32,10 +32,18 @@ public class CityDetailAdapter extends ArrayAdapter<CarParkDetail>{
     public View getView(int position, View convertView, ViewGroup parent) {
         CarParkDetail carParkDetail = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
-        ImageView fruitImage = view.findViewById(R.id.detail_image);
-        TextView fruitName = view.findViewById(R.id.detail_name);
-        fruitImage.setImageResource(carParkDetail.getImageId());
-        fruitName.setText(carParkDetail.getName());
+        ImageView imageView = view.findViewById(R.id.detail_image);
+        TextView name = view.findViewById(R.id.detail_name);
+        TextView points = view.findViewById(R.id.points);
+        TextView distance = view.findViewById(R.id.distance);
+        TextView monthlySoldOut = view.findViewById(R.id.monthlySoldOut);
+        TextView price = view.findViewById(R.id.price);
+        imageView.setImageResource(carParkDetail.getImageId());
+        name.setText(carParkDetail.getName());
+        distance.setText(carParkDetail.getDistance());
+        monthlySoldOut.setText(carParkDetail.getDistance());
+        points.setText(carParkDetail.getPoints());
+        price.setText(carParkDetail.getPrice());
         return view;
     }
 }

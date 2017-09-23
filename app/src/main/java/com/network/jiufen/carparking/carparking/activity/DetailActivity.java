@@ -1,20 +1,12 @@
-package com.network.jiufen.carparking.carparking;
+package com.network.jiufen.carparking.carparking.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.adapter.CityDetailAdapter;
 import com.network.jiufen.carparking.carparking.domain.CarParkDetail;
-
-import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +17,10 @@ public class DetailActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_list);
+        setContentView(R.layout.brief_list);
         initDetails();
-        CityDetailAdapter cityDetailAdapter = new CityDetailAdapter(DetailActivity.this,R.layout.detail_info,details);
-        ListView listView = (ListView)findViewById(R.id.detail_list);
+        CityDetailAdapter cityDetailAdapter = new CityDetailAdapter(DetailActivity.this,R.layout.brief_info,details);
+        ListView listView = (ListView)findViewById(R.id.brief_list);
         listView.setAdapter(cityDetailAdapter);
 
     }
@@ -36,7 +28,7 @@ public class DetailActivity extends AppCompatActivity{
 
     private void initDetails()
     {
-        CarParkDetail carParkDetail = new CarParkDetail("深圳机场",R.drawable.car_park1);
+        CarParkDetail carParkDetail = new CarParkDetail("深圳机场",R.drawable.car_park1,"4.8分","距机场直线距离3公里","月销2000单","$18.0均");
         details.add(carParkDetail);
     }
 

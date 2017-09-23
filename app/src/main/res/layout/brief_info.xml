@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="left"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/detail_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/detail_image"
+        android:layout_alignTop="@id/detail_image"
+        android:layout_marginLeft="5dip" />
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/detail_image"
+        android:layout_below="@id/detail_name"
+        android:layout_marginLeft="5dip" />
+
+    <TextView
+        android:id="@+id/monthlySoldOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/points"
+        android:layout_below="@id/detail_name"
+        android:layout_marginLeft="5dip" />
+
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/detail_image"
+        android:layout_below="@id/points"
+        android:layout_marginLeft="5dip" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/detail_image"
+        android:layout_below="@id/detail_image"
+        android:gravity="right"/>
+</RelativeLayout>

@@ -21,7 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:label="@string/app_name" >
+        <activity android:name=".activity.MainActivity" android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,15 +42,15 @@
             android:value="ec2cfd143073af63c67fb22756d37489" />
 
         <activity
-            android:name=".ContentActivity"
+            android:name=".activity.ContentActivity"
             android:label="机场停车"></activity>
 
         <activity
-            android:name=".CitiesListActivity"
+            android:name=".activity.CitiesListActivity"
             android:label="全国机场"></activity>
 
         <activity
-            android:name=".DetailActivity"
+            android:name=".activity.BriefActivity"
             android:label="认证停车场"></activity>
     </application>
 

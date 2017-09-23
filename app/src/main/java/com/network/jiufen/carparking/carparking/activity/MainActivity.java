@@ -1,4 +1,4 @@
-package com.network.jiufen.carparking.carparking;
+package com.network.jiufen.carparking.carparking.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -14,10 +13,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.network.jiufen.carparking.carparking.R;
+
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
-
-import static com.mob.tools.utils.ResHelper.getStringRes;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private EditText phone;
