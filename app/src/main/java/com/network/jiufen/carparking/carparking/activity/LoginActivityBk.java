@@ -1,11 +1,11 @@
 package com.network.jiufen.carparking.carparking.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -18,7 +18,9 @@ import com.network.jiufen.carparking.carparking.R;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+import static com.mob.tools.utils.ResHelper.getStringRes;
+
+public class LoginActivityBk extends Activity implements View.OnClickListener {
     private EditText phone;
     private EditText cord;
     private TextView now;
@@ -30,12 +32,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private boolean flag = true;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         init();
         EventHandler eh = new EventHandler() {
             @Override
@@ -53,7 +54,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void init() {
         phone = (EditText) findViewById(R.id.phone);
         cord = (EditText) findViewById(R.id.cord);
-        now = (TextView) findViewById(R.id.now);
+        now = (TextView) findViewById(R.id.hintmessage);
         getCord = (Button) findViewById(R.id.getcord);
         saveCord = (Button) findViewById(R.id.savecord);
         getCord.setOnClickListener(this);
@@ -71,11 +72,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         cord.requestFocus();
                         getCord.setVisibility(View.GONE);
                     } else {
-                        Toast.makeText(MainActivity.this, "请输入完整电话号码", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivityBk.this, "请输入完整电话号码", Toast.LENGTH_LONG).show();
                         phone.requestFocus();
                     }
                 } else {
-                    Toast.makeText(MainActivity.this, "请输入您的电话号码", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivityBk.this, "请输入您的电话号码", Toast.LENGTH_LONG).show();
                     phone.requestFocus();
                 }
                 break;
@@ -86,11 +87,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         SMSSDK.submitVerificationCode("86", iPhone, iCord);
                         flag = false;
                     } else {
-                        Toast.makeText(MainActivity.this, "请输入完整验证码", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivityBk.this, "请输入完整验证码", Toast.LENGTH_LONG).show();
                         cord.requestFocus();
                     }
                 } else {
-                    Toast.makeText(MainActivity.this, "请输入验证码", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivityBk.this, "请输入验证码", Toast.LENGTH_LONG).show();
                     cord.requestFocus();
                 }
                 break;
@@ -129,50 +130,41 @@ public class MainActivity extends Activity implements View.OnClickListener {
     };
 
 
-
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            Intent intent = new Intent(MainActivity.this, ContentActivity.class);
-            startActivity(intent);
-            Toast.makeText(getApplicationContext(), "验证码校验成功", Toast.LENGTH_SHORT).show();
-            handlerText.sendEmptyMessage(2);
-            return;
-
-
             // TODO Auto-generated method stub
-//            super.handleMessage(msg);
-//            int event = msg.arg1;
-//            int result = msg.arg2;
-//            Object data = msg.obj;
-//            Log.e("event", "event=" + event);
-//            if (result == SMSSDK.RESULT_COMPLETE) {
-//            //短信注册成功后，返回MainActivity,然后提示新好友
-//                if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {//提交验证码成功,验证通过
-//                    Toast.makeText(getApplicationContext(), "验证码校验成功", Toast.LENGTH_SHORT).show();
-//                    handlerText.sendEmptyMessage(2);
-//                } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {//服务器验证码发送成功
-//                    reminderText();
-//                    Toast.makeText(getApplicationContext(), "验证码已经发送", Toast.LENGTH_SHORT).show();
-//                } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {//返回支持发送验证码的国家列表
-//                    Toast.makeText(getApplicationContext(), "获取国家列表成功", Toast.LENGTH_SHORT).show();
-//                }
-//            } else {
-//                if (flag) {
-//                    getCord.setVisibility(View.VISIBLE);
-//                    Toast.makeText(MainActivity.this, "验证码获取失败，请重新获取", Toast.LENGTH_SHORT).show();
-//                    phone.requestFocus();
-//                } else {
-//                    ((Throwable) data).printStackTrace();
-//                    int resId = getStringRes(MainActivity.this, "smssdk_network_error");
-//                    Toast.makeText(MainActivity.this, "验证码错误", Toast.LENGTH_SHORT).show();
-//                    cord.selectAll();
-//                    if (resId > 0) {
-//                        Toast.makeText(MainActivity.this, resId, Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }
-
+            super.handleMessage(msg);
+            int event = msg.arg1;
+            int result = msg.arg2;
+            Object data = msg.obj;
+            Log.e("event", "event=" + event);
+            if (result == SMSSDK.RESULT_COMPLETE) {
+                //短信注册成功后，返回MainActivity,然后提示新好友
+                if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {//提交验证码成功,验证通过
+                    Toast.makeText(getApplicationContext(), "验证码校验成功", Toast.LENGTH_SHORT).show();
+                    handlerText.sendEmptyMessage(2);
+                } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {//服务器验证码发送成功
+                    reminderText();
+                    Toast.makeText(getApplicationContext(), "验证码已经发送", Toast.LENGTH_SHORT).show();
+                } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {//返回支持发送验证码的国家列表
+                    Toast.makeText(getApplicationContext(), "获取国家列表成功", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                if (flag) {
+                    getCord.setVisibility(View.VISIBLE);
+                    Toast.makeText(LoginActivityBk.this, "验证码获取失败，请重新获取", Toast.LENGTH_SHORT).show();
+                    phone.requestFocus();
+                } else {
+                    ((Throwable) data).printStackTrace();
+                    int resId = getStringRes(LoginActivityBk.this, "smssdk_network_error");
+                    Toast.makeText(LoginActivityBk.this, "验证码错误", Toast.LENGTH_SHORT).show();
+                    cord.selectAll();
+                    if (resId > 0) {
+                        Toast.makeText(LoginActivityBk.this, resId, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
 
 
         }

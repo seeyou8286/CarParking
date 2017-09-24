@@ -2,14 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity" >
+    tools:context=".activity.LoginActivityBk" >
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:text="短信验证"
-        android:textColor="#00ffaa"
+        android:text="手机登录"
         android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -21,7 +20,7 @@
         android:layout_below="@+id/textView2"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:text="手机号：" />
+        android:text="手机号码：" />
     <EditText
         android:id="@+id/phone"
         android:layout_width="wrap_content"
@@ -58,7 +57,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/cord"
+        android:layout_alignBottom="@+id/cord"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/cord"
@@ -72,7 +71,7 @@
         android:layout_margin="20dp"
         android:text="验证" />
     <TextView
-        android:id="@+id/now"
+        android:id="@+id/hintmessage"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/savecord"
