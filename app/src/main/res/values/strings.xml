@@ -6,4 +6,9 @@
     <string name="menu_refresh">Refresh</string>
     <string name="menu_location">Location</string>
     <string name="menu_settings">Settings</string>
+
+
+    <!--Navigation Bar-->
+    <string name="title_mobile_login">手机登录</string>
+    <string name="title_account_login">账号登录</string>
 </resources>
