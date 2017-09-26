@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:maxLength="11"
+        android:ems="11"
+        android:hint="手机号"
+        android:inputType="phone" >
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/validatePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/account_name"
+        android:layout_alignBottom="@+id/account_name"
+        android:layout_toRightOf="@+id/account_name"
+        android:layout_marginTop="20dp"
+        android:text="验证" />
+
+    <EditText
+        android:id="@+id/verificationCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/account_name"
+        android:layout_alignLeft="@+id/account_name"
+        android:hint="输入验证码"
+        android:ems="14"
+        android:maxLength="11"/>
+
+
+    <EditText
+        android:id="@+id/newpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/verificationCode"
+        android:layout_alignLeft="@+id/verificationCode"
+        android:hint="密码"
+        android:ems="14"
+        android:maxLength="11"
+        android:inputType="textPassword"/>
+
+
+    <EditText
+        android:id="@+id/passwordagain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/newpassword"
+        android:layout_alignLeft="@+id/newpassword"
+        android:hint="再次输入密码"
+        android:ems="14"
+        android:maxLength="11"
+        android:inputType="textPassword"/>
+
+
+    <Button
+        android:id="@+id/regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordagain"
+        android:layout_alignLeft="@+id/passwordagain"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:ems="20"
+        android:text="注册" />
+
+</RelativeLayout>

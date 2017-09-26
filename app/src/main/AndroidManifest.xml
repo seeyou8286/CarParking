@@ -57,7 +57,6 @@
             android:name=".activity.BookingActivity"
             android:label="订单确认"></activity>
 
-
         <meta-data
             android:name="Mob-AppKey"
             android:value="LTAIlqRFpTsP6gRO" />
