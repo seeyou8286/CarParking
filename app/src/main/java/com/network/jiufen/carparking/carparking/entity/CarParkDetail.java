@@ -1,4 +1,4 @@
-package com.network.jiufen.carparking.carparking.domain;
+package com.network.jiufen.carparking.carparking.entity;
 
 /**
  * Created by asus on 2017/9/23.

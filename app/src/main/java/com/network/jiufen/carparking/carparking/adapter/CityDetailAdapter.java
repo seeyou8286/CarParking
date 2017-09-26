@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.domain.CarParkDetail;
+import com.network.jiufen.carparking.carparking.entity.CarParkDetail;
 
 import java.util.List;
 

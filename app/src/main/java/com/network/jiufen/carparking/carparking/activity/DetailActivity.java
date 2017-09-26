@@ -6,14 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.adapter.CityDetailAdapter;
-import com.network.jiufen.carparking.carparking.domain.CarParkDetail;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView detailImage;
