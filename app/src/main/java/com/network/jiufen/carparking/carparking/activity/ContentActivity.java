@@ -16,7 +16,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_content);
+        setContentView(R.layout.activity_portal);
         chooseAirport = (Button) findViewById(R.id.chooseAirport);
         chooseAirport.setOnClickListener(this);
     }

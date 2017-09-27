@@ -3,7 +3,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/account_name"
+        android:id="@+id/new_account_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,31 +20,43 @@
         android:id="@+id/validatePhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/account_name"
-        android:layout_alignBottom="@+id/account_name"
-        android:layout_toRightOf="@+id/account_name"
+        android:layout_alignBaseline="@+id/new_account_name"
+        android:layout_alignBottom="@+id/new_account_name"
+        android:layout_toRightOf="@+id/new_account_name"
         android:layout_marginTop="20dp"
         android:text="验证" />
 
+    <TextView
+        android:id="@+id/new_hintmessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/new_account_name"
+        android:layout_alignBottom="@+id/new_account_name"
+        android:layout_toRightOf="@+id/new_account_name"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:text="提示信息"
+        android:textColor="#aaaaaa" />
+
     <EditText
-        android:id="@+id/verificationCode"
+        android:id="@+id/new_verificationCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/account_name"
-        android:layout_alignLeft="@+id/account_name"
+        android:layout_below="@+id/new_account_name"
+        android:layout_alignLeft="@+id/new_account_name"
         android:hint="输入验证码"
         android:ems="14"
         android:maxLength="11"/>
 
 
     <EditText
-        android:id="@+id/newpassword"
+        android:id="@+id/new_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/verificationCode"
-        android:layout_alignLeft="@+id/verificationCode"
+        android:layout_below="@+id/new_verificationCode"
+        android:layout_alignLeft="@+id/new_verificationCode"
         android:hint="密码"
         android:ems="14"
         android:maxLength="11"
@@ -52,12 +64,12 @@
 
 
     <EditText
-        android:id="@+id/passwordagain"
+        android:id="@+id/new_password_again"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/newpassword"
-        android:layout_alignLeft="@+id/newpassword"
+        android:layout_below="@+id/new_password"
+        android:layout_alignLeft="@+id/new_password"
         android:hint="再次输入密码"
         android:ems="14"
         android:maxLength="11"
@@ -65,11 +77,11 @@
 
 
     <Button
-        android:id="@+id/regist"
+        android:id="@+id/registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordagain"
-        android:layout_alignLeft="@+id/passwordagain"
+        android:layout_below="@+id/new_password_again"
+        android:layout_alignLeft="@+id/new_password_again"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:ems="20"

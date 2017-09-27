@@ -8,8 +8,14 @@
     <string name="menu_settings">Settings</string>
 
 
-    <!--Navigation Bar-->
+    <!--Login Navigation Bar-->
     <string name="title_mobile_login">手机登录</string>
     <string name="title_account_login">账号登录</string>
     <string name="title_registration">注册</string>
+
+
+    <!--Portal Navigation Bar-->
+    <string name="title_protal">首页</string>
+    <string name="title_order">订单</string>
+    <string name="title_mine">我的</string>
 </resources>

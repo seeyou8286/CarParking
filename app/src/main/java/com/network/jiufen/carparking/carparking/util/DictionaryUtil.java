@@ -18,5 +18,8 @@ public class DictionaryUtil {
     public static final String APP_KEY="Mob-AppKey";
     public static final String APP_SECRET="Mob-AppSecret";
 
+    public static final String SUCCESS = "success";
+    public static final String ERROR = "error";
+
 
 }
