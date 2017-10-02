@@ -7,20 +7,39 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.network.jiufen.carparking.carparking.R;
+import com.network.jiufen.carparking.carparking.util.MySingleton;
 
 import org.bson.Document;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class CitiesListActivity extends AppCompatActivity implements View.OnClickListener {
+    private String url = "https://carparkingservice.herokuapp.com/airport/findall";
+    private List<String> airportList = new ArrayList<>();
+
     private ListView listView;
+
+    private ArrayAdapter arrayAdapter;
 
 
     @Override
@@ -29,14 +48,13 @@ public class CitiesListActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.cities_list);
         listView = (ListView) findViewById(R.id.listViewBasic);
 
-        final List<String> list= new ArrayList<>();
-        list.add("深圳宝安");
-        list.add("广州白云");
-        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1,list));
+        initGettingAirporList();
+        arrayAdapter  = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1,airportList);
+        listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(list.get(position));
+                System.out.println(airportList.get(position));
                 Intent intent = new Intent(CitiesListActivity.this,BriefActivity.class);
                 startActivity(intent);
             }
@@ -44,23 +62,40 @@ public class CitiesListActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-
-    public MongoDatabase getMongoDBConnection()
+    public void initGettingAirporList()
     {
-        MongoClientURI uri = new MongoClientURI(
-                "mongodb://localhost:27017");
-
-        MongoClient mongoClient = new MongoClient(uri);
-        MongoDatabase database = mongoClient.getDatabase("car");
-        return database;
-    }
-
-    public List<String> getCitiesList(MongoDatabase database)
-    {
-        MongoCollection<Document> collection =  database.getCollection("cities");
-        Document document = collection.find().first();
-        List<String> list = (List)document.get("name");
-        return list;
+        JsonArrayRequest objRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        arrayAdapter.clear();
+                        for (int i=0;i<response.length(); i++) {
+                            try {
+                                String name = ((JSONObject)response.get(i)).get("name").toString();
+                                airportList.add(name);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        arrayAdapter.addAll(airportList);
+                        arrayAdapter.notifyDataSetChanged();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Toast.makeText(CitiesListActivity.this, "无法连接网络", Toast.LENGTH_LONG).show();
+            }
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("content-type", "application/json");
+                return headers;
+            }
+        };
+        MySingleton.getInstance(CitiesListActivity.this).addToRequestQueue(objRequest);
     }
 
 
