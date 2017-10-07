@@ -14,22 +14,15 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.util.MySingleton;
 
-import org.bson.Document;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -49,35 +42,34 @@ public class CitiesListActivity extends AppCompatActivity implements View.OnClic
         listView = (ListView) findViewById(R.id.listViewBasic);
 
         initGettingAirporList();
-        arrayAdapter  = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1,airportList);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, airportList);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 System.out.println(airportList.get(position));
-                Intent intent = new Intent(CitiesListActivity.this,BriefActivity.class);
+                Intent intent = new Intent(CitiesListActivity.this, BriefActivity.class);
+                intent.putExtra("airportName",airportList.get(position));
                 startActivity(intent);
             }
         });
     }
 
 
-    public void initGettingAirporList()
-    {
+    public void initGettingAirporList() {
         JsonArrayRequest objRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         arrayAdapter.clear();
-                        for (int i=0;i<response.length(); i++) {
+                        for (int i = 0; i < response.length(); i++) {
                             try {
-                                String name = ((JSONObject)response.get(i)).get("name").toString();
+                                String name = ((JSONObject) response.get(i)).get("name").toString();
                                 airportList.add(name);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        arrayAdapter.addAll(airportList);
                         arrayAdapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
@@ -86,8 +78,7 @@ public class CitiesListActivity extends AppCompatActivity implements View.OnClic
                 error.printStackTrace();
                 Toast.makeText(CitiesListActivity.this, "无法连接网络", Toast.LENGTH_LONG).show();
             }
-        })
-        {
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();

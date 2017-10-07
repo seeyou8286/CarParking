@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.entity.CarParkDetail;
+import com.network.jiufen.carparking.carparking.entity.ParkingLot;
 
 import java.util.List;
 
@@ -19,17 +19,17 @@ import java.util.List;
  * Created by asus on 2017/9/23.
  */
 
-public class CityDetailAdapter extends ArrayAdapter<CarParkDetail>{
+public class ParkingLotAdapter extends ArrayAdapter<ParkingLot> {
     private int resourceId;
 
-    public CityDetailAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<CarParkDetail> objects) {
+    public ParkingLotAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<ParkingLot> objects) {
         super(context, resource, objects);
         resourceId = resource;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        CarParkDetail carParkDetail = getItem(position);
+        ParkingLot parkingLot = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         ImageView imageView = view.findViewById(R.id.brief_image);
         TextView name = view.findViewById(R.id.brief_name);
@@ -37,12 +37,13 @@ public class CityDetailAdapter extends ArrayAdapter<CarParkDetail>{
         TextView distance = view.findViewById(R.id.distance);
         TextView monthlySoldOut = view.findViewById(R.id.monthlySoldOut);
         TextView price = view.findViewById(R.id.price);
-        imageView.setImageResource(carParkDetail.getImageId());
-        name.setText(carParkDetail.getName());
-        distance.setText(carParkDetail.getDistance());
-        monthlySoldOut.setText(carParkDetail.getDistance());
-        points.setText(carParkDetail.getPoints());
-        price.setText(carParkDetail.getPrice());
+        //TODO
+        imageView.setImageResource(R.drawable.car_park1);
+        name.setText(parkingLot.getName());
+        distance.setText(parkingLot.getDistance());
+        monthlySoldOut.setText(parkingLot.getDistance());
+        points.setText(parkingLot.getRate());
+        price.setText(parkingLot.getDayPrice().toString());
         return view;
     }
 }

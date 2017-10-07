@@ -52,7 +52,7 @@ public class AccountFragment extends Fragment {
                     Toast.makeText(getActivity(), "请输入密码", Toast.LENGTH_LONG).show();
                     password.requestFocus();
                 } else {
-                    Map<String, String> map = new HashMap<String, String>();
+                    Map<String, String> map = new HashMap<>();
                     map.put("phoneNumber", accountName.getText().toString().trim());
                     JSONObject params = new JSONObject(map);
                     JsonObjectRequest objRequest = new JsonObjectRequest(Request.Method.POST, url, params,

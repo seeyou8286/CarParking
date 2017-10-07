@@ -1,41 +1,28 @@
 package com.network.jiufen.carparking.carparking.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
-/**
- * Created by summer on 2017/5/5.
- */
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class ParkingLot implements Serializable {
     private static final long serialVersionUID = -3258839839160856613L;
+    private String name;
+    private String distance;
+    private String rate;
+    private Integer dayPrice;
+    private String airportName;
     private String cityName;
-    private List<String> airportName;
-    private List<String> placeName;
+    private int imageId;
 
-    public ParkingLot() {
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public List<String> getAirportName() {
-        return airportName;
-    }
-
-    public void setAirportName(List<String> airportName) {
+    public ParkingLot(String name, String distance, String rate, Integer dayPrice, String airportName, String cityName) {
+        this.name = name;
+        this.distance = distance;
+        this.rate = rate;
+        this.dayPrice = dayPrice;
         this.airportName = airportName;
-    }
-
-    public List<String> getPlaceName() {
-        return placeName;
-    }
-
-    public void setPlaceName(List<String> placeName) {
-        this.placeName = placeName;
+        this.cityName = cityName;
     }
 }
