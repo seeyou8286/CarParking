@@ -4,46 +4,73 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.util.DateTimePickDialogUtil;
+import com.network.jiufen.carparking.carparking.widget.CustomDatePicker;
 
-public class BookingActivity extends AppCompatActivity {
-    /** Called when the activity is first created. */
-    private EditText startDateTime;
-    private EditText endDateTime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
-    private String initStartDateTime = "2013年9月3日 14:44"; // 初始化开始时间
-    private String initEndDateTime = "2014年8月23日 17:44"; // 初始化结束时间
+public class BookingActivity extends AppCompatActivity  implements View.OnClickListener {
+    /**
+     * Called when the activity is first created.
+     */
+    private TextView startDateTime;
+    private TextView endDateTime;
+
+    private CustomDatePicker startTimeDatePicker;
+    private CustomDatePicker endTimeDatePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.booking_content);
 
-        startDateTime = (EditText) findViewById(R.id.startDialog);
-        endDateTime = (EditText) findViewById(R.id.endDialog);
-
-        startDateTime.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
-                        BookingActivity.this, initStartDateTime);
-                dateTimePicKDialog.dateTimePicKDialog(startDateTime);
-
-            }
-        });
-
-        endDateTime.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
-                        BookingActivity.this, initEndDateTime);
-                dateTimePicKDialog.dateTimePicKDialog(endDateTime);
-            }
-        });
+        startDateTime = (TextView) findViewById(R.id.startDialog);
+        endDateTime = (TextView) findViewById(R.id.endDialog);
+        startDateTime.setOnClickListener(this);
+        endDateTime.setOnClickListener(this);
+        initDatePicker();
     }
 
+    private void initDatePicker() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
+        String now = sdf.format(new Date());
+        startDateTime.setText(now);
+        endDateTime.setText(now);
+        startTimeDatePicker = new CustomDatePicker(this, new CustomDatePicker.ResultHandler() {
+            @Override
+            public void handle(String time) { // 回调接口，获得选中的时间
+                startDateTime.setText(time);
+            }
+        }, "2010-01-01 00:00", now); // 初始化日期格式请用：yyyy-MM-dd HH:mm，否则不能正常运行
+        startTimeDatePicker.showSpecificTime(true); // 显示时和分
+        startTimeDatePicker.setIsLoop(true); // 允许循环滚动
 
+        endTimeDatePicker = new CustomDatePicker(this, new CustomDatePicker.ResultHandler() {
+            @Override
+            public void handle(String time) { // 回调接口，获得选中的时间
+                endDateTime.setText(time);
+            }
+        }, "2010-01-01 00:00", now); // 初始化日期格式请用：yyyy-MM-dd HH:mm，否则不能正常运行
+        endTimeDatePicker.showSpecificTime(true); // 显示时和分
+        endTimeDatePicker.setIsLoop(true); // 允许循环滚动
+    }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.startDialog:
+                // 日期格式为yyyy-MM-dd
+                startTimeDatePicker.show(startDateTime.getText().toString());
+                break;
+
+            case R.id.endDialog:
+                // 日期格式为yyyy-MM-dd HH:mm
+                endTimeDatePicker.show(endDateTime.getText().toString());
+                break;
+        }
+    }
 }

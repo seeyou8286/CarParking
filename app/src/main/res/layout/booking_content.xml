@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <TextView
@@ -9,87 +10,154 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="深圳机场达成停车场"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:id="@+id/textView" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
+    <View
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/smssdk_gray" />
+
+    <LinearLayout
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="室外停车" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="室内停车" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:padding="35px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/startTime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="停车时间"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/startDialog"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:padding="35px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/endTime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="取车时间"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/endDialog"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/smssdk_gray" />
+
+
+    <LinearLayout
+        android:padding="35px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="23dp"
-        android:text="室内停车" />
+        android:layout_marginTop="20px">
+
+        <TextView
+            android:id="@+id/numbers"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="车辆数"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:layout_marginLeft="40px"
+            android:id="@+id/numberPicker"
+            android:inputType="number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_bg"
+            android:ems="10"
+            android:layout_weight="1"
+            android:lines="1"
+            />
+        </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/startTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/radioButton"
-        android:text="停车时间"
-        android:textSize="20sp"/>
+    <LinearLayout
+        android:padding="35px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/startDialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_alignBottom="@+id/startTime"
-        android:layout_toRightOf="@+id/startTime"/>
+        <TextView
+            android:id="@+id/plate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="车牌号"
+            android:layout_weight="3"
+            android:textSize="15sp"/>
 
-
-    <TextView
-        android:id="@+id/endTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/startTime"
-        android:text="取车时间"
-        android:textSize="20sp"/>
-
-    <EditText
-        android:id="@+id/endDialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_alignBottom="@+id/endTime"
-        android:layout_toRightOf="@+id/endTime"/>
-
-    <TextView
-        android:id="@+id/numbers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/endTime"
-        android:layout_alignParentLeft="true"
-        android:text="车辆"
-        android:textSize="20sp"/>
-
-    <EditText
-        android:id="@+id/numberPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/numbers"
-        android:layout_toRightOf="@+id/numbers"/>
+        <EditText
+            android:layout_marginLeft="40px"
+            android:background="@drawable/edit_bg"
+            android:id="@+id/plateText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:lines="1"
+            android:ems="10"/>
 
 
-    <TextView
-        android:id="@+id/plate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/numbers"
-        android:layout_alignParentLeft="true"
-        android:text="车牌号"
-        android:textSize="20sp"/>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/plateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/plate"
-        android:layout_toRightOf="@+id/plate"/>
 
 
     <TableRow
@@ -103,4 +171,4 @@
             android:id="@+id/confirmBooking"
             android:text="确认支付"/>
     </TableRow>
-</RelativeLayout>
+</LinearLayout>

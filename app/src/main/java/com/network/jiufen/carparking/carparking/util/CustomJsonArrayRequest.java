@@ -17,9 +17,6 @@ import java.io.UnsupportedEncodingException;
  */
 
 public class CustomJsonArrayRequest extends JsonRequest<JSONArray> {
-    public CustomJsonArrayRequest(String url, String requestBody, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) {
-        super(url, requestBody, listener, errorListener);
-    }
 
     public CustomJsonArrayRequest(int method, String url, JSONObject jsonRequest, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) {
         super(method, url, (jsonRequest == null) ? null : jsonRequest.toString(), listener, errorListener);

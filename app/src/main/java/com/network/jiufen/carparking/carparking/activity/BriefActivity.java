@@ -54,7 +54,7 @@ public class BriefActivity extends AppCompatActivity{
     }
 
 
-    private void initDetails(final String airportName)
+    public void initDetails(final String airportName)
     {
         Map request = new HashMap();
         request.put("airportName",airportName);
@@ -83,7 +83,7 @@ public class BriefActivity extends AppCompatActivity{
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
+                  error.printStackTrace();
                 Toast.makeText(BriefActivity.this, "无法连接网络", Toast.LENGTH_LONG).show();
             }
         }) {
