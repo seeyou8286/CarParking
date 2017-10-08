@@ -148,7 +148,7 @@
         <EditText
             android:layout_marginLeft="40px"
             android:background="@drawable/edit_bg"
-            android:id="@+id/plateText"
+            android:id="@+id/carPlate"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
