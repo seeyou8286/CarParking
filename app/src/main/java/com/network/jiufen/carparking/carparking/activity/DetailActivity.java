@@ -28,6 +28,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
+        String parkingLotName = this.getIntent().getStringExtra("parkingLotName");
         Intent intent = null;
         switch (view.getId())
         {
@@ -36,6 +37,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.startBooking:
                 intent = new Intent(DetailActivity.this,BookingActivity.class);
+                intent.putExtra("parkingLotName",parkingLotName);
                 break;
         }
         startActivity(intent);

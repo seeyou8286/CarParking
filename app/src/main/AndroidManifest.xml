@@ -55,6 +55,10 @@
 
         <activity
             android:name=".activity.BookingActivity"
+            android:label="填写订单"></activity>
+
+        <activity
+            android:name=".activity.ConfirmBookingActivity"
             android:label="订单确认"></activity>
 
         <meta-data
@@ -63,16 +67,6 @@
         <meta-data
             android:name="Mob-AppSecret"
             android:value="k2Q56aMHFKo3L1cT9C2sVWlyTnCtQh" />
-
-        <!-- 通过AndroidManifest配置AppKey和AppSecret，如果你选择通过代码配置，则不需要配置以下meta-data -->
-        <!--<meta-data-->
-            <!--android:name="Mob-AppKey"-->
-            <!--android:value="211e7ffea4c98" />-->
-        <!--<meta-data-->
-            <!--android:name="Mob-AppSecret"-->
-            <!--android:value="ec2cfd143073af63c67fb22756d37489" />-->
-
-
     </application>
 
 </manifest>

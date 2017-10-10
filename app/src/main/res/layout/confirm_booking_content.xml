@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:id="@+id/parkingLotName" />
+
+    <View
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/smssdk_gray" />
+
+    <LinearLayout
+        android:padding="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="类型："
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/categoryValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:padding="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="预计入场"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/startTimeValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:padding="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="预计出场"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/endTimeValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:padding="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="车牌号码"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/plateValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+
+
+    </LinearLayout>
+
+
+
+
+    <TableRow
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirmBooking"
+            android:text="确认支付"/>
+    </TableRow>
+</LinearLayout>

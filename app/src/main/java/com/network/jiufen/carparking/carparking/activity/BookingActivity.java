@@ -1,5 +1,6 @@
 package com.network.jiufen.carparking.carparking.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -103,6 +104,7 @@ public class BookingActivity extends AppCompatActivity  implements View.OnClickL
                 String startTime = startDateTime.getText().toString().trim();
                 String endTime = endDateTime.getText().toString().trim();
                 Integer number = Integer.valueOf(numberPicker.getText().toString().trim());
+                String placeName = this.getIntent().getStringExtra("parkingLotName");
                 String plate = carPlate.getText().toString().trim();
                 String phoneNumber = SharedPrefsUtil.getValue(getApplicationContext(),"phone","");
                 Map map = new HashMap<>();
@@ -111,8 +113,17 @@ public class BookingActivity extends AppCompatActivity  implements View.OnClickL
                 map.put("endTime",endTime);
                 map.put("plateNumber",plate);
                 map.put("carCounts",number);
+                map.put("placeName",placeName);
+                Intent intent = new Intent(BookingActivity.this,ConfirmBookingActivity.class);
+                intent.putExtra("phoneNumber",phoneNumber);
+                intent.putExtra("startTime",startTime);
+                intent.putExtra("endTime",endTime);
+                intent.putExtra("plateNumber",plate);
+                intent.putExtra("carCounts",number);
+                intent.putExtra("placeName",placeName);
                 JSONObject params = new JSONObject(map);
                 saveBookingInfo(params);
+                startActivity(intent);
                 break;
         }
     }

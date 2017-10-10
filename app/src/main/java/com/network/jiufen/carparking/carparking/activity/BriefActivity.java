@@ -48,8 +48,8 @@ public class BriefActivity extends AppCompatActivity{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(parkingLotsList.get(position));
                 Intent intent = new Intent(BriefActivity.this,DetailActivity.class);
+                intent.putExtra("parkingLotName",parkingLotsList.get(position).getName());
                 startActivity(intent);
             }
         });
