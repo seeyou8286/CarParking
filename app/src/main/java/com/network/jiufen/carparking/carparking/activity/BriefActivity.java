@@ -28,8 +28,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
+
 public class BriefActivity extends AppCompatActivity{
-    private String url = "https://carparkingservice.herokuapp.com/park/find";
+    private String url = WEB_SERVICE_HOST+"/park/find";
     private List<ParkingLot> parkingLotsList = new ArrayList<>();
     private ParkingLotAdapter parkingLotAdapter;
 

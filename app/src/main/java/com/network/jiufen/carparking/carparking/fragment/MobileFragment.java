@@ -3,6 +3,7 @@ package com.network.jiufen.carparking.carparking.fragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,6 +20,9 @@ import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.activity.ContentActivity;
 import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
 import com.network.jiufen.carparking.carparking.util.SMSender;
+import com.network.jiufen.carparking.carparking.util.SharedPrefsUtil;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class MobileFragment extends Fragment {
     private Context context;
@@ -79,7 +83,9 @@ public class MobileFragment extends Fragment {
                     if (cord.getText().toString().trim().length() == 4) {
                         iCord = cord.getText().toString().trim();
                         if (verificationCode.equals(iCord)) {
+                            SharedPrefsUtil.putValue(getActivity().getApplicationContext(),"phone",iPhone);
                             Toast.makeText(getActivity(), "验证码校验成功", Toast.LENGTH_SHORT).show();
+
                             Intent intent = new Intent(getActivity(), ContentActivity.class);
                             startActivity(intent);
                         } else {

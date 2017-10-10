@@ -26,8 +26,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
+
 public class CitiesListActivity extends AppCompatActivity implements View.OnClickListener {
-    private String url = "https://carparkingservice.herokuapp.com/airport/findall";
+    private String url = WEB_SERVICE_HOST+"/airport/findall";
     private List<String> airportList = new ArrayList<>();
 
     private ListView listView;

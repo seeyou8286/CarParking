@@ -1,5 +1,6 @@
 package com.network.jiufen.carparking.carparking.activity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
 import com.network.jiufen.carparking.carparking.util.MySingleton;
+import com.network.jiufen.carparking.carparking.util.SharedPrefsUtil;
 import com.network.jiufen.carparking.carparking.widget.CustomDatePicker;
 
 import org.json.JSONException;
@@ -26,9 +28,11 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
+
 public class BookingActivity extends AppCompatActivity  implements View.OnClickListener {
 
-    private String url = "https://carparkingservice.herokuapp.com/booking/save";
+    private String url = WEB_SERVICE_HOST+"/booking/save";
 
     /**
      * Called when the activity is first created.
@@ -100,7 +104,9 @@ public class BookingActivity extends AppCompatActivity  implements View.OnClickL
                 String endTime = endDateTime.getText().toString().trim();
                 Integer number = Integer.valueOf(numberPicker.getText().toString().trim());
                 String plate = carPlate.getText().toString().trim();
+                String phoneNumber = SharedPrefsUtil.getValue(getApplicationContext(),"phone","");
                 Map map = new HashMap<>();
+                map.put("phoneNumber",phoneNumber);
                 map.put("startTime",startTime);
                 map.put("endTime",endTime);
                 map.put("plateNumber",plate);

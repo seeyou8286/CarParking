@@ -30,8 +30,10 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
+
 public class RegistrationFragment extends Fragment {
-    private String url = "https://carparkingservice.herokuapp.com/account/save";
+    private String url = WEB_SERVICE_HOST+"/account/save";
     private int time = 60;
     private String verificationCode;
     private EditText account_name;
