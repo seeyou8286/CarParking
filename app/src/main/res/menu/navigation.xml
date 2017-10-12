@@ -9,7 +9,7 @@
     android:id="@+id/navigation_dashboard"
     android:title="@string/title_account_login" />
 
-    <item
-        android:id="@+id/navigation_regist"
-        android:title="@string/title_registration" />
+    <!--<item-->
+        <!--android:id="@+id/navigation_regist"-->
+        <!--android:title="@string/title_registration" />-->
 </menu>

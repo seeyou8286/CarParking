@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.network.jiufen.carparking.carparking.R;
 
-public class ContentActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomepageActivity extends AppCompatActivity implements View.OnClickListener {
     private Button chooseAirport;
 
 
@@ -23,7 +23,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(ContentActivity.this, CitiesListActivity.class);
+        Intent intent = new Intent(HomepageActivity.this, CitiesListActivity.class);
         startActivity(intent);
     }
 

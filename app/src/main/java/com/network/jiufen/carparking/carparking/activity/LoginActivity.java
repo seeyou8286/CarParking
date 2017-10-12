@@ -11,9 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.fragment.AccountFragment;
-import com.network.jiufen.carparking.carparking.fragment.MobileFragment;
-import com.network.jiufen.carparking.carparking.fragment.RegistrationFragment;
+import com.network.jiufen.carparking.carparking.fragment.login.AccountFragment;
+import com.network.jiufen.carparking.carparking.fragment.login.MobileFragment;
 import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
 
 public class LoginActivity extends AppCompatActivity {
@@ -29,17 +28,17 @@ public class LoginActivity extends AppCompatActivity {
             ft = fm.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    ft.replace(R.id.fragment_content,new MobileFragment());
+                    ft.replace(R.id.fragment_content, new MobileFragment());
                     ft.commit();
                     return true;
                 case R.id.navigation_dashboard:
-                    ft.replace(R.id.fragment_content,new AccountFragment());
+                    ft.replace(R.id.fragment_content, new AccountFragment());
                     ft.commit();
                     return true;
-                case R.id.navigation_regist:
-                    ft.replace(R.id.fragment_content,new RegistrationFragment());
-                    ft.commit();
-                    return true;
+//                case R.id.navigation_regist:
+//                    ft.replace(R.id.fragment_content,new RegistrationFragment());
+//                    ft.commit();
+//                    return true;
             }
             return false;
         }
@@ -58,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
         ft.replace(R.id.fragment_content, new MobileFragment());
         ft.commit();
     }
-
 
 
     private void initRetrieveMetaData() {

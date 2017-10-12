@@ -1,8 +1,7 @@
-package com.network.jiufen.carparking.carparking.fragment;
+package com.network.jiufen.carparking.carparking.fragment.login;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -12,15 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.Cache;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.activity.ContentActivity;
+import com.network.jiufen.carparking.carparking.activity.HomepageActivity;
 import com.network.jiufen.carparking.carparking.util.MySingleton;
 import com.network.jiufen.carparking.carparking.util.SharedPrefsUtil;
 
@@ -30,7 +26,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.content.Context.MODE_PRIVATE;
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
 public class AccountFragment extends Fragment {
@@ -74,7 +69,7 @@ public class AccountFragment extends Fragment {
                                     if(realPassword.equals(password.getText().toString().trim()))
                                     {
                                         SharedPrefsUtil.putValue(getActivity().getApplicationContext(),"phone",accountName.getText().toString().trim());
-                                        Intent intent = new Intent(getActivity(), ContentActivity.class);
+                                        Intent intent = new Intent(getActivity(), HomepageActivity.class);
                                         getActivity().startActivity(intent);
                                         Toast.makeText(getActivity(), "密码正确", Toast.LENGTH_LONG).show();
                                     }else

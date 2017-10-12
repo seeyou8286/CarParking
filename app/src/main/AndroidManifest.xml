@@ -36,7 +36,7 @@
 
 
         <activity
-            android:name=".activity.ContentActivity"
+            android:name=".activity.HomepageActivity"
             android:label="机场停车"></activity>
 
         <activity
@@ -60,6 +60,10 @@
         <activity
             android:name=".activity.ConfirmBookingActivity"
             android:label="订单确认"></activity>
+
+        <activity
+            android:name=".activity.PaymentSuccessActivity"
+            android:label="支付成功"></activity>
 
         <meta-data
             android:name="Mob-AppKey"

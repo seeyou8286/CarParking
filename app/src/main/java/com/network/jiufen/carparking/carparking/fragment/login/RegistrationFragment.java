@@ -1,4 +1,4 @@
-package com.network.jiufen.carparking.carparking.fragment;
+package com.network.jiufen.carparking.carparking.fragment.login;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.activity.ContentActivity;
+import com.network.jiufen.carparking.carparking.activity.HomepageActivity;
 import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
 import com.network.jiufen.carparking.carparking.util.MySingleton;
 import com.network.jiufen.carparking.carparking.util.SMSender;
@@ -174,7 +174,7 @@ public class RegistrationFragment extends Fragment {
                             if(status.equals(DictionaryUtil.SUCCESS))
                             {
                                 Toast.makeText(getActivity(), "注册成功", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(getActivity(), ContentActivity.class);
+                                Intent intent = new Intent(getActivity(), HomepageActivity.class);
                                 startActivity(intent);
                             }else
                             {

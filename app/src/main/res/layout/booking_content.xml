@@ -9,9 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:text="深圳机场达成停车场"
         android:textSize="18sp"
-        android:id="@+id/textView" />
+        android:id="@+id/parkingLotName" />
 
     <View
         android:layout_marginTop="20px"
@@ -169,6 +168,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/confirmBooking"
-            android:text="确认支付"/>
+            android:text="确定"/>
     </TableRow>
 </LinearLayout>

@@ -25,6 +25,7 @@ public class ConfirmBookingActivity extends AppCompatActivity implements View.On
     private TextView startTimeValue;
     private TextView endTimeValue;
     private TextView plateValue;
+    private Button confirmBookingButton;
 
     private CustomDatePicker startTimeDatePicker;
     private CustomDatePicker endTimeDatePicker;
@@ -35,13 +36,14 @@ public class ConfirmBookingActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.confirm_booking_content);
         Intent intent = this.getIntent();
 
-        String placeName = intent.getStringExtra("placeName");
+        String placeName = intent.getStringExtra("parkingLotName");
         String phoneNumber = intent.getStringExtra("phoneNumber");
         String startTime = intent.getStringExtra("startTime");
         String endTime = intent.getStringExtra("endTime");
         String plateNumber = intent.getStringExtra("plateNumber");
         Integer carCounts = intent.getIntExtra("carCounts", 0);
 
+        confirmBookingButton = (Button)findViewById(R.id.confirmBooking);
         parkingLotName = (TextView) findViewById(R.id.parkingLotName);
         categoryValue = (TextView) findViewById(R.id.categoryValue);
         startTimeValue = (TextView) findViewById(R.id.startTimeValue);
@@ -52,11 +54,15 @@ public class ConfirmBookingActivity extends AppCompatActivity implements View.On
         startTimeValue.setText(startTime);
         endTimeValue.setText(endTime);
         plateValue.setText(plateNumber);
+
+        confirmBookingButton.setOnClickListener(this);
+
     }
 
 
     @Override
     public void onClick(View view) {
-
+        Intent intent = new Intent(ConfirmBookingActivity.this, PaymentSuccessActivity.class);
+        startActivity(intent);
     }
 }
