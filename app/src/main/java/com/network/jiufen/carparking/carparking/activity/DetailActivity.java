@@ -36,7 +36,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 intent = new Intent(DetailActivity.this,PicViewerActivity.class);
                 break;
             case R.id.startBooking:
-                intent = new Intent(DetailActivity.this,BookingActivity.class);
+                intent = new Intent(DetailActivity.this,BookingPrepareActivity.class);
                 intent.putExtra("parkingLotName",parkingLotName);
                 break;
         }

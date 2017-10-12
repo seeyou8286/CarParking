@@ -16,7 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.activity.HomepageActivity;
+import com.network.jiufen.carparking.carparking.activity.HomePageActivity;
 import com.network.jiufen.carparking.carparking.util.MySingleton;
 import com.network.jiufen.carparking.carparking.util.SharedPrefsUtil;
 
@@ -38,7 +38,7 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_account_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_login_account, container, false);
         accountName = view.findViewById(R.id.account_name);
         password = view.findViewById(R.id.password);
         validate = view.findViewById(R.id.validate);
@@ -69,7 +69,7 @@ public class AccountFragment extends Fragment {
                                     if(realPassword.equals(password.getText().toString().trim()))
                                     {
                                         SharedPrefsUtil.putValue(getActivity().getApplicationContext(),"phone",accountName.getText().toString().trim());
-                                        Intent intent = new Intent(getActivity(), HomepageActivity.class);
+                                        Intent intent = new Intent(getActivity(), HomePageActivity.class);
                                         getActivity().startActivity(intent);
                                         Toast.makeText(getActivity(), "密码正确", Toast.LENGTH_LONG).show();
                                     }else

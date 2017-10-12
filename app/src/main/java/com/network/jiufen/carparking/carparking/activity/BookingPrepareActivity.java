@@ -30,7 +30,7 @@ import java.util.Map;
 
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
-public class BookingActivity extends AppCompatActivity  implements View.OnClickListener {
+public class BookingPrepareActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private String url = WEB_SERVICE_HOST+"/booking/save";
 
@@ -117,7 +117,7 @@ public class BookingActivity extends AppCompatActivity  implements View.OnClickL
                 map.put("plateNumber",plate);
                 map.put("carCounts",number);
                 map.put("parkingLotName",parkingLotName);
-                Intent intent = new Intent(BookingActivity.this,ConfirmBookingActivity.class);
+                Intent intent = new Intent(BookingPrepareActivity.this,BookingConfirmActivity.class);
                 intent.putExtra("phoneNumber",phoneNumber);
                 intent.putExtra("startTime",startTime);
                 intent.putExtra("endTime",endTime);
@@ -144,13 +144,13 @@ public class BookingActivity extends AppCompatActivity  implements View.OnClickL
                             String status = response.getString("status");
                             if(status.equals(DictionaryUtil.SUCCESS))
                             {
-                                Toast.makeText(BookingActivity.this, "注册成功", Toast.LENGTH_LONG).show();
+                                Toast.makeText(BookingPrepareActivity.this, "注册成功", Toast.LENGTH_LONG).show();
                             }else
                             {
-                                Toast.makeText(BookingActivity.this, "账号已存在", Toast.LENGTH_LONG).show();
+                                Toast.makeText(BookingPrepareActivity.this, "账号已存在", Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
-                            Toast.makeText(BookingActivity.this, "无法注册", Toast.LENGTH_LONG).show();
+                            Toast.makeText(BookingPrepareActivity.this, "无法注册", Toast.LENGTH_LONG).show();
                             return;
                         }
 
@@ -158,10 +158,10 @@ public class BookingActivity extends AppCompatActivity  implements View.OnClickL
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(BookingActivity.this, "无法注册", Toast.LENGTH_LONG).show();
+                Toast.makeText(BookingPrepareActivity.this, "无法注册", Toast.LENGTH_LONG).show();
             }
         });
-        MySingleton.getInstance(BookingActivity.this).addToRequestQueue(objRequest);
+        MySingleton.getInstance(BookingPrepareActivity.this).addToRequestQueue(objRequest);
     }
 
 

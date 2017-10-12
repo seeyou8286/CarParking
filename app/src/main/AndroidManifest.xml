@@ -36,7 +36,7 @@
 
 
         <activity
-            android:name=".activity.HomepageActivity"
+            android:name=".activity.HomePageActivity"
             android:label="机场停车"></activity>
 
         <activity
@@ -54,11 +54,11 @@
             android:label="图片"></activity>
 
         <activity
-            android:name=".activity.BookingActivity"
+            android:name=".activity.BookingPrepareActivity"
             android:label="填写订单"></activity>
 
         <activity
-            android:name=".activity.ConfirmBookingActivity"
+            android:name=".activity.BookingConfirmActivity"
             android:label="订单确认"></activity>
 
         <activity

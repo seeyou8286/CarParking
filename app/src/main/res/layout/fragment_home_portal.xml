@@ -1,9 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".activity.HomepageActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -35,13 +33,4 @@
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textStyle="italic" />
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/portal_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/protal_navigation" />
-
 </RelativeLayout>

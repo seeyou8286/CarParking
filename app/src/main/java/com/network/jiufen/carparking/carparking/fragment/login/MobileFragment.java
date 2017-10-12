@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.activity.HomepageActivity;
+import com.network.jiufen.carparking.carparking.activity.HomePageActivity;
 import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
 import com.network.jiufen.carparking.carparking.util.SMSender;
 import com.network.jiufen.carparking.carparking.util.SharedPrefsUtil;
@@ -38,7 +38,7 @@ public class MobileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_mobile_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_login_mobile, container, false);
         init(view);
         return view;
     }
@@ -83,7 +83,7 @@ public class MobileFragment extends Fragment {
                             SharedPrefsUtil.putValue(getActivity().getApplicationContext(),"phone",iPhone);
                             Toast.makeText(getActivity(), "验证码校验成功", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(getActivity(), HomepageActivity.class);
+                            Intent intent = new Intent(getActivity(), HomePageActivity.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(getActivity(), "验证码错误", Toast.LENGTH_SHORT).show();

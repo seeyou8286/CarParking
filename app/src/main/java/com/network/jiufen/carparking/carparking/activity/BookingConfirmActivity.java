@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.network.jiufen.carparking.carparking.R;
@@ -13,7 +12,7 @@ import com.network.jiufen.carparking.carparking.widget.CustomDatePicker;
 
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
-public class ConfirmBookingActivity extends AppCompatActivity implements View.OnClickListener {
+public class BookingConfirmActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String url = WEB_SERVICE_HOST + "/booking/save";
 
@@ -26,9 +25,6 @@ public class ConfirmBookingActivity extends AppCompatActivity implements View.On
     private TextView endTimeValue;
     private TextView plateValue;
     private Button confirmBookingButton;
-
-    private CustomDatePicker startTimeDatePicker;
-    private CustomDatePicker endTimeDatePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +58,7 @@ public class ConfirmBookingActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(ConfirmBookingActivity.this, PaymentSuccessActivity.class);
+        Intent intent = new Intent(BookingConfirmActivity.this, PaymentSuccessActivity.class);
         startActivity(intent);
     }
 }
