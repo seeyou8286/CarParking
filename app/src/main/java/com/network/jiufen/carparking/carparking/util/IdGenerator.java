@@ -25,7 +25,7 @@ public enum IdGenerator {
     private long lastTimestamp = -1L;
 
     IdGenerator(){
-        workerId = 0x000000FF & getLastIP();
+        workerId = 0x000000FF ;
     }
 
 
@@ -69,15 +69,4 @@ public enum IdGenerator {
         return System.currentTimeMillis();
     }
 
-    private byte getLastIP(){
-        byte lastip = 0;
-        try{
-            InetAddress ip = InetAddress.getLocalHost();
-            byte[] ipByte = ip.getAddress();
-            lastip = ipByte[ipByte.length - 1];
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-        return lastip;
-    }
 }

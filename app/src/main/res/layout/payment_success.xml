@@ -5,18 +5,6 @@
     android:orientation="vertical">
 
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:fontFamily="sans-serif"-->
-        <!--android:textSize="18sp"-->
-        <!--android:text="成功支付"-->
-        <!--android:id="@+id/parkingLotName" />-->
-
-
-
-
-
     <TableRow
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -27,5 +15,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/confirmBooking"
             android:text="成功支付"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/returnToHomePage"
+            android:text="回到首页"/>
     </TableRow>
 </LinearLayout>

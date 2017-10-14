@@ -26,6 +26,8 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
     private TextView plateValue;
     private Button confirmBookingButton;
 
+    private String phoneNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
         Intent intent = this.getIntent();
 
         String placeName = intent.getStringExtra("parkingLotName");
-        String phoneNumber = intent.getStringExtra("phoneNumber");
+        phoneNumber = intent.getStringExtra("phoneNumber");
         String startTime = intent.getStringExtra("startTime");
         String endTime = intent.getStringExtra("endTime");
         String plateNumber = intent.getStringExtra("plateNumber");
@@ -59,6 +61,7 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(BookingConfirmActivity.this, PaymentSuccessActivity.class);
+        intent.putExtra("phoneNumber",phoneNumber);
         startActivity(intent);
     }
 }

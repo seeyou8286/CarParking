@@ -15,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
+import com.network.jiufen.carparking.carparking.util.IdGenerator;
 import com.network.jiufen.carparking.carparking.util.MySingleton;
 import com.network.jiufen.carparking.carparking.util.SharedPrefsUtil;
 import com.network.jiufen.carparking.carparking.widget.CustomDatePicker;
@@ -117,6 +118,9 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
                 map.put("plateNumber",plate);
                 map.put("carCounts",number);
                 map.put("parkingLotName",parkingLotName);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
+                map.put("bookingTime",sdf.format(new Date()));
+                map.put("id",IdGenerator.INSTANCE.nextId());
                 Intent intent = new Intent(BookingPrepareActivity.this,BookingConfirmActivity.class);
                 intent.putExtra("phoneNumber",phoneNumber);
                 intent.putExtra("startTime",startTime);
@@ -144,13 +148,13 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
                             String status = response.getString("status");
                             if(status.equals(DictionaryUtil.SUCCESS))
                             {
-                                Toast.makeText(BookingPrepareActivity.this, "注册成功", Toast.LENGTH_LONG).show();
+                                Toast.makeText(BookingPrepareActivity.this, "预订成功", Toast.LENGTH_LONG).show();
                             }else
                             {
-                                Toast.makeText(BookingPrepareActivity.this, "账号已存在", Toast.LENGTH_LONG).show();
+                                Toast.makeText(BookingPrepareActivity.this, "预订失败", Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
-                            Toast.makeText(BookingPrepareActivity.this, "无法注册", Toast.LENGTH_LONG).show();
+                            Toast.makeText(BookingPrepareActivity.this, "预订失败", Toast.LENGTH_LONG).show();
                             return;
                         }
 
@@ -158,7 +162,7 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(BookingPrepareActivity.this, "无法注册", Toast.LENGTH_LONG).show();
+                Toast.makeText(BookingPrepareActivity.this, "预订失败", Toast.LENGTH_LONG).show();
             }
         });
         MySingleton.getInstance(BookingPrepareActivity.this).addToRequestQueue(objRequest);
