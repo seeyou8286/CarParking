@@ -45,7 +45,8 @@ public class AccountFragment extends Fragment {
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(accountName.getText().toString().trim())) {
+                final String phoneNumber = accountName.getText().toString().trim();
+                if (TextUtils.isEmpty(phoneNumber)) {
                     Toast.makeText(getActivity(), "请输入用户名", Toast.LENGTH_LONG).show();
                     accountName.requestFocus();
                 } else if (TextUtils.isEmpty(password.getText().toString().trim())) {
@@ -53,7 +54,7 @@ public class AccountFragment extends Fragment {
                     password.requestFocus();
                 } else {
                     Map<String, String> map = new HashMap<>();
-                    map.put("phoneNumber", accountName.getText().toString().trim());
+                    map.put("phoneNumber", phoneNumber);
                     JSONObject params = new JSONObject(map);
                     JsonObjectRequest objRequest = new JsonObjectRequest(Request.Method.POST, url, params,
                             new Response.Listener<JSONObject>() {
@@ -68,8 +69,9 @@ public class AccountFragment extends Fragment {
                                     }
                                     if(realPassword.equals(password.getText().toString().trim()))
                                     {
-                                        SharedPrefsUtil.putValue(getActivity().getApplicationContext(),"phone",accountName.getText().toString().trim());
+                                        SharedPrefsUtil.putValue(getActivity().getApplicationContext(),"phone",phoneNumber);
                                         Intent intent = new Intent(getActivity(), HomePageActivity.class);
+                                        intent.putExtra("phoneNumber",phoneNumber);
                                         getActivity().startActivity(intent);
                                         Toast.makeText(getActivity(), "密码正确", Toast.LENGTH_LONG).show();
                                     }else
@@ -80,7 +82,7 @@ public class AccountFragment extends Fragment {
                             }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getActivity(), "账号不存在", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "无法连接网络", Toast.LENGTH_LONG).show();
                         }
                     });
                     MySingleton.getInstance(getActivity()).addToRequestQueue(objRequest);
