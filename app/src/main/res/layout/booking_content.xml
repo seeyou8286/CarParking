@@ -108,25 +108,37 @@
         android:layout_marginTop="20px">
 
         <TextView
-            android:id="@+id/numbers"
-            android:layout_width="fill_parent"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:fontFamily="sans-serif"
             android:text="车辆数"
             android:textSize="15sp"/>
 
-        <EditText
-            android:layout_marginLeft="40px"
-            android:id="@+id/numberPicker"
-            android:inputType="number"
-            android:layout_width="fill_parent"
+
+
+        <Button
+            android:id="@+id/numberMinus"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit_bg"
-            android:ems="10"
+            android:enabled="false"
+            android:text="-"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:lines="1"
-            />
+            android:inputType="number"
+            android:id="@+id/numbers"
+            android:text="1"/>
+        <Button
+            android:id="@+id/numberAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:layout_weight="1" />
         </LinearLayout>
 
 
@@ -156,7 +168,41 @@
 
 
     </LinearLayout>
+    <View
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/smssdk_gray" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="35px">
+        <TextView
+            android:id="@+id/orderFeeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="支付定金"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/orderFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/orderFeeText"
+            android:text="20元"
+            android:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="10px"
+            android:layout_below="@+id/orderFee"
+            android:text="余额请在取车后支付"/>
+    </RelativeLayout>
 
 
     <TableRow
@@ -165,9 +211,12 @@
         android:layout_height="match_parent"
         android:gravity="center">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/confirmBooking"
-            android:text="确定"/>
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:text="确定"
+            android:enabled="false"/>
     </TableRow>
 </LinearLayout>

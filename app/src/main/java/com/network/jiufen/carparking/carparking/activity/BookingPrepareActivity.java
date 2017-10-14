@@ -41,9 +41,13 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
     private TextView startDateTime;
     private TextView endDateTime;
     private Button confirmBooking;
-    private EditText numberPicker;
+    private TextView numberPicker;
     private EditText carPlate;
     private TextView placeName;
+    private TextView orderFee;
+
+    private Button numberAdd;
+    private Button numberMinus;
 
     private CustomDatePicker startTimeDatePicker;
     private CustomDatePicker endTimeDatePicker;
@@ -57,13 +61,19 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
         startDateTime = (TextView) findViewById(R.id.startDialog);
         endDateTime = (TextView) findViewById(R.id.endDialog);
         confirmBooking = (Button) findViewById(R.id.confirmBooking);
-        numberPicker = (EditText) findViewById(R.id.numberPicker);
+        numberPicker = (TextView) findViewById(R.id.numbers);
         carPlate = (EditText) findViewById(R.id.carPlate);
         placeName = (TextView) findViewById(R.id.parkingLotName);
+        numberAdd = (Button) findViewById(R.id.numberAdd);
+        numberMinus = (Button) findViewById(R.id.numberMinus);
+        orderFee = (TextView) findViewById(R.id.orderFee);
         placeName.setText(parkingLotName);
         startDateTime.setOnClickListener(this);
         endDateTime.setOnClickListener(this);
         confirmBooking.setOnClickListener(this);
+        numberAdd.setOnClickListener(this);
+        numberMinus.setOnClickListener(this);
+
         initDatePicker();
     }
 
@@ -102,8 +112,31 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
             case R.id.endDialog:
                 // 日期格式为yyyy-MM-dd HH:mm
                 endTimeDatePicker.show(endDateTime.getText().toString());
+                confirmBooking.setEnabled(true);
                 break;
-
+            case R.id.numberMinus:
+                Integer currentValue = Integer.valueOf(numberPicker.getText().toString().trim());
+                currentValue--;
+                numberPicker.setText(currentValue.toString());
+                orderFee.setText(currentValue*20+"");
+                if(currentValue==1)
+                {
+                    numberMinus.setEnabled(false);
+                }else if(currentValue>1)
+                {
+                    numberMinus.setEnabled(true);
+                }
+                break;
+            case R.id.numberAdd:
+                Integer currentValue2 = Integer.valueOf(numberPicker.getText().toString().trim());
+                currentValue2++;
+                numberPicker.setText(currentValue2.toString());
+                orderFee.setText(currentValue2*20+"");
+                if(currentValue2>1)
+                {
+                    numberMinus.setEnabled(true);
+                }
+                break;
             case R.id.confirmBooking:
                 String startTime = startDateTime.getText().toString().trim();
                 String endTime = endDateTime.getText().toString().trim();
