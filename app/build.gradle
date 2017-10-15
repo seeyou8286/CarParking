@@ -44,5 +44,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.16.16'
     compile group: 'com.github.chrisbanes.photoview', name: 'library', version: '1.2.4'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+    compile 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
+    compile 'com.android.support:recyclerview-v7:26.+'
+    compile 'com.bigkoo:quicksidebar:1.0.3'
     testCompile 'junit:junit:4.12'
 }
