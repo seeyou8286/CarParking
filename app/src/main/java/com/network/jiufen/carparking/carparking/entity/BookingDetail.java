@@ -1,5 +1,7 @@
 package com.network.jiufen.carparking.carparking.entity;
 
+import com.network.jiufen.carparking.carparking.enumeration.BookingStatusEnum;
+
 import java.io.Serializable;
 
 import lombok.Data;
@@ -23,6 +25,7 @@ public class BookingDetail implements Serializable {
     private String parkingLotName;  //Compulsory
     private Integer totalPrice;
     private Integer bookingFee;
+    private BookingStatusEnum bookingStatus;
 
     public BookingDetail(String id, String phoneNumber, String startTime, String endTime, String plateNumber, Integer peopleCounts, String carCounts, String parkingLotName, Integer totalPrice, Integer bookingFee) {
         this.id = id;

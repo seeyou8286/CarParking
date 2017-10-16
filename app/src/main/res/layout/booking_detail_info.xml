@@ -6,8 +6,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="15px"
-        android:background="@color/color3" />
+        android:layout_height="25px"
+        android:background="@color/dimgrey" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -100,4 +100,5 @@
         android:layout_toRightOf="@+id/endTimeText"
         android:textSize="30px"/>
     </RelativeLayout>
+
 </LinearLayout>
