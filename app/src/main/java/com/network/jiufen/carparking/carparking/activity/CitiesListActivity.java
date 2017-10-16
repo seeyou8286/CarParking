@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -45,6 +44,7 @@ import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE
 public class CitiesListActivity extends AppCompatActivity implements OnQuickSideBarTouchListener {
     private String url = WEB_SERVICE_HOST + "/airport/findall";
     private List<City> airportList = new ArrayList<>();
+
     RecyclerView recyclerView;
     HashMap<String, Integer> letters = new HashMap<>();
     QuickSideBarView quickSideBarView;
@@ -56,13 +56,14 @@ public class CitiesListActivity extends AppCompatActivity implements OnQuickSide
         public void onItemClickListener(View v, int position) {
             //这里的view就是我们点击的view  position就是点击的position
             Intent intent = new Intent(CitiesListActivity.this, BriefActivity.class);
-            intent.putExtra("airportName",airportList.get(position).getName());
+            intent.putExtra("airportName", airportList.get(position).getName());
             startActivity(intent);
         }
     };
 
 
     CityListWithHeadersAdapter adapter = new CityListWithHeadersAdapter(onRecyclerviewItemClickListener);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +72,9 @@ public class CitiesListActivity extends AppCompatActivity implements OnQuickSide
         initGettingAirporList();
 
 
+    }
+
+    public void confiureAdapter() {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         quickSideBarView = (QuickSideBarView) findViewById(R.id.quickSideBarView);
         quickSideBarTipsView = (QuickSideBarTipsView) findViewById(R.id.quickSideBarTipsView);
@@ -83,11 +87,7 @@ public class CitiesListActivity extends AppCompatActivity implements OnQuickSide
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        // Add the sticky headers decoration
-
-
         ArrayList<String> customLetters = new ArrayList<>();
-
         int position = 0;
         for (City city : airportList) {
             String letter = city.getFirstLetter();
@@ -109,7 +109,6 @@ public class CitiesListActivity extends AppCompatActivity implements OnQuickSide
 
         // Add decoration for dividers between list items
         recyclerView.addItemDecoration(new DividerDecoration(this));
-
     }
 
 
@@ -129,7 +128,7 @@ public class CitiesListActivity extends AppCompatActivity implements OnQuickSide
     }
 
     private class CityListWithHeadersAdapter extends CityListAdapter<RecyclerView.ViewHolder>
-            implements StickyRecyclerHeadersAdapter<RecyclerView.ViewHolder>,View.OnClickListener {
+            implements StickyRecyclerHeadersAdapter<RecyclerView.ViewHolder>, View.OnClickListener {
 
         private OnRecyclerviewItemClickListener mOnRecyclerviewItemClickListener = null;
 
@@ -203,8 +202,7 @@ public class CitiesListActivity extends AppCompatActivity implements OnQuickSide
                                 e.printStackTrace();
                             }
                         }
-                        adapter.addAll(airportList);
-                        adapter.notifyDataSetChanged();
+                        confiureAdapter();
                     }
                 }, new Response.ErrorListener() {
             @Override
