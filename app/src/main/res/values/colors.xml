@@ -156,4 +156,12 @@
     <color name="palevioletred">#db7093</color><!--苍紫罗兰色 -->
     <color name="darkviolet">#9400d3</color><!--暗紫罗兰色 -->
     <color name="mediumorchid">#ba55d3</color><!--中粉紫色 -->
+
+
+
+    <!--Drawable Bar-->
+    <color name="background_user_navigation_drawer">#161F29</color>
+    <color name="grey_background">#eeeeee</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#666666</color>
 </resources>

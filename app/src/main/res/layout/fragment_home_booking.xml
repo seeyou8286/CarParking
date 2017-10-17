@@ -8,7 +8,7 @@
         android:id="@+id/navigation_booking_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="@color/orange"
+        app:itemBackground="@color/dimgrey"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:menu="@menu/booking_navigation" />
