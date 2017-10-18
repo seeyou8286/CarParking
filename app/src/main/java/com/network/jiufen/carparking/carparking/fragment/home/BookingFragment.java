@@ -1,8 +1,6 @@
 package com.network.jiufen.carparking.carparking.fragment.home;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -20,14 +18,15 @@ import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.adapter.BookingDetailAdapter;
 import com.network.jiufen.carparking.carparking.entity.BookingDetail;
 import com.network.jiufen.carparking.carparking.enumeration.BookingStatusEnum;
-import com.network.jiufen.carparking.carparking.fragment.login.MobileFragment;
 import com.network.jiufen.carparking.carparking.util.CustomJsonArrayRequest;
+import com.network.jiufen.carparking.carparking.util.JsonUtil;
 import com.network.jiufen.carparking.carparking.util.MySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,8 +53,7 @@ public class BookingFragment extends Fragment {
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+                switch (item.getItemId()) {
                     case R.id.status_booked:
                         bookingDetailList.clear();
                         bookingDetailList.addAll(bookedDetails);
@@ -90,7 +88,6 @@ public class BookingFragment extends Fragment {
 //        });
 
 
-
         return view;
     }
 
@@ -104,37 +101,24 @@ public class BookingFragment extends Fragment {
                     @Override
                     public void onResponse(JSONArray response) {
                         for (int i = 0; i < response.length(); i++) {
+                            BookingDetail bookingDetail = null;
                             try {
-                                JSONObject jsonObject = (JSONObject) response.get(i);
-                                String id = jsonObject.get("id").toString();
-                                String bookingTime = jsonObject.get("bookingTime").toString();
-                                String startTime = jsonObject.get("startTime").toString();
-                                String endTime = jsonObject.get("endTime").toString();
-                                String parkingLotName = jsonObject.get("parkingLotName").toString();
-                                String bookingStatus = jsonObject.get("bookingStatus").toString();
-
-                                BookingDetail bookingDetail = new BookingDetail();
-                                bookingDetail.setId(id);
-                                bookingDetail.setStartTime(startTime);
-                                bookingDetail.setEndTime(endTime);
-                                bookingDetail.setParkingLotName(parkingLotName);
-                                bookingDetail.setBookingTime(bookingTime);
-                                bookingDetail.setBookingStatus(BookingStatusEnum.valueOf(bookingStatus));
-
-                                if(bookingStatus.equals(BookingStatusEnum.Booked.name()))
-                                {
-                                    bookedDetails.add(bookingDetail);
-                                }else if(bookingStatus.equals(BookingStatusEnum.CheckedIn.name()))
-                                {
-                                    checkedInDetails.add(bookingDetail);
-                                }else if(bookingStatus.equals(BookingStatusEnum.CheckedOut.name()))
-                                {
-                                    checkedOutDetails.add(bookingDetail);
-                                }
-
+                                bookingDetail = JsonUtil.fromJson(response.get(i).toString(), BookingDetail.class);
+                            } catch (IOException e) {
+                                System.out.println("Fail to convert");
+                                bookingDetail = null;
                             } catch (JSONException e) {
-                                e.printStackTrace();
+                                System.out.println("Fail to convert");
+                                bookingDetail = null;
                             }
+                            if (bookingDetail.getBookingStatus().equals(BookingStatusEnum.Booked)) {
+                                bookedDetails.add(bookingDetail);
+                            } else if (bookingDetail.getBookingStatus().equals(BookingStatusEnum.CheckedIn)) {
+                                checkedInDetails.add(bookingDetail);
+                            } else if (bookingDetail.getBookingStatus().equals(BookingStatusEnum.CheckedOut)) {
+                                checkedOutDetails.add(bookingDetail);
+                            }
+
                         }
                         bookingDetailList.addAll(bookedDetails);
                         bookingDetailAdapter.notifyDataSetChanged();

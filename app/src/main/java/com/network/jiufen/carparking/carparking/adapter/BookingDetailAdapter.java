@@ -7,12 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.entity.BookingDetail;
-import com.network.jiufen.carparking.carparking.entity.ParkingLot;
 
 import java.util.List;
 
@@ -40,11 +38,11 @@ public class BookingDetailAdapter extends ArrayAdapter<BookingDetail> {
         TextView endTime = view.findViewById(R.id.endTime);
 
         parkingLotName.setText(bookingDetail.getParkingLotName());
-        bookingTime.setText(bookingDetail.getBookingTime());
-        status.setText("未进场");
+        bookingTime.setText(bookingDetail.getBookingTime().toString("yyyy-MM-dd HH:mm"));
+        status.setText(bookingDetail.getBookingStatus().name());
         bookingId.setText(bookingDetail.getId());
-        startTime.setText(bookingDetail.getStartTime());
-        endTime.setText(bookingDetail.getEndTime());
+        startTime.setText(bookingDetail.getPlanedCheckInTime().toString("yyyy-MM-dd HH:mm"));
+        endTime.setText(bookingDetail.getPlanedCheckOutTime().toString("yyyy-MM-dd HH:mm"));
         return view;
     }
 }
