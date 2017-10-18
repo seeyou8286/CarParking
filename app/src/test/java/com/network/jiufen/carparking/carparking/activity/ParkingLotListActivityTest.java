@@ -5,11 +5,11 @@ import org.junit.Test;
 /**
  * Created by asus on 2017/10/7.
  */
-public class BriefActivityTest {
+public class ParkingLotListActivityTest {
     @Test
     public void initTest() throws Exception {
-        BriefActivity briefActivity = new BriefActivity();
-        briefActivity.initDetails("深圳宝安");
+        ParkingLotListActivity parkingLotListActivity = new ParkingLotListActivity();
+        parkingLotListActivity.initDetails("深圳宝安");
 
 
     }

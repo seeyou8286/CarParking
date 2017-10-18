@@ -83,7 +83,7 @@ public class BookingFragment extends Fragment {
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(BriefActivity.this,DetailActivity.class);
+//                Intent intent = new Intent(BriefActivity.this,ParkingLotDetailActivity.class);
 //                intent.putExtra("parkingLotName",parkingLotsList.get(position).getName());
 //                startActivity(intent);
 //            }

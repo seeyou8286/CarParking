@@ -12,7 +12,6 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.adapter.ParkingLotAdapter;
 import com.network.jiufen.carparking.carparking.entity.ParkingLot;
@@ -30,7 +29,7 @@ import java.util.Map;
 
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
-public class BriefActivity extends AppCompatActivity{
+public class ParkingLotListActivity extends AppCompatActivity{
     private String url = WEB_SERVICE_HOST+"/park/find";
     private List<ParkingLot> parkingLotsList = new ArrayList<>();
     private ParkingLotAdapter parkingLotAdapter;
@@ -42,13 +41,13 @@ public class BriefActivity extends AppCompatActivity{
         Intent intent = this.getIntent();
         String airportName = intent.getStringExtra("airportName");
         initDetails(airportName);
-        parkingLotAdapter = new ParkingLotAdapter(BriefActivity.this,R.layout.brief_info,parkingLotsList);
+        parkingLotAdapter = new ParkingLotAdapter(ParkingLotListActivity.this,R.layout.brief_info,parkingLotsList);
         ListView listView = (ListView)findViewById(R.id.brief_list);
         listView.setAdapter(parkingLotAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(BriefActivity.this,DetailActivity.class);
+                Intent intent = new Intent(ParkingLotListActivity.this,ParkingLotDetailActivity.class);
                 intent.putExtra("parkingLotName",parkingLotsList.get(position).getName());
                 startActivity(intent);
             }
@@ -86,7 +85,7 @@ public class BriefActivity extends AppCompatActivity{
             @Override
             public void onErrorResponse(VolleyError error) {
                   error.printStackTrace();
-                Toast.makeText(BriefActivity.this, "无法连接网络", Toast.LENGTH_LONG).show();
+                Toast.makeText(ParkingLotListActivity.this, "无法连接网络", Toast.LENGTH_LONG).show();
             }
         }) {
             @Override
@@ -96,7 +95,7 @@ public class BriefActivity extends AppCompatActivity{
                 return headers;
             }
         } ;
-        MySingleton.getInstance(BriefActivity.this).addToRequestQueue(objRequest);
+        MySingleton.getInstance(ParkingLotListActivity.this).addToRequestQueue(objRequest);
     }
 
 }

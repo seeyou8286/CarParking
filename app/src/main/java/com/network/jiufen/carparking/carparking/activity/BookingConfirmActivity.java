@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.widget.CustomDatePicker;
 
+import butterknife.BindView;
+
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
 public class BookingConfirmActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,11 +21,17 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
     /**
      * Called when the activity is first created.
      */
+    @BindView(R.id.parkingLotName)
     private TextView parkingLotName;
+    @BindView(R.id.categoryValue)
     private TextView categoryValue;
+    @BindView(R.id.startTimeValue)
     private TextView startTimeValue;
+    @BindView(R.id.endTimeValue)
     private TextView endTimeValue;
+    @BindView(R.id.plateValue)
     private TextView plateValue;
+    @BindView(R.id.confirmBooking)
     private Button confirmBookingButton;
 
     private String phoneNumber;
@@ -41,13 +49,9 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
         String plateNumber = intent.getStringExtra("plateNumber");
         Integer carCounts = intent.getIntExtra("carCounts", 0);
 
-        confirmBookingButton = (Button)findViewById(R.id.confirmBooking);
-        parkingLotName = (TextView) findViewById(R.id.parkingLotName);
-        categoryValue = (TextView) findViewById(R.id.categoryValue);
-        startTimeValue = (TextView) findViewById(R.id.startTimeValue);
-        endTimeValue = (TextView) findViewById(R.id.endTimeValue);
-        plateValue = (TextView) findViewById(R.id.plateValue);
         parkingLotName.setText(placeName);
+
+        //TODO
         categoryValue.setText("室内停车");
         startTimeValue.setText(startTime);
         endTimeValue.setText(endTime);

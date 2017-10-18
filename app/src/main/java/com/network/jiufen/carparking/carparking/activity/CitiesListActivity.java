@@ -55,7 +55,7 @@ public class CitiesListActivity extends AppCompatActivity implements OnQuickSide
         @Override
         public void onItemClickListener(View v, int position) {
             //这里的view就是我们点击的view  position就是点击的position
-            Intent intent = new Intent(CitiesListActivity.this, BriefActivity.class);
+            Intent intent = new Intent(CitiesListActivity.this, ParkingLotListActivity.class);
             intent.putExtra("airportName", airportList.get(position).getName());
             startActivity(intent);
         }

@@ -44,10 +44,10 @@
             android:label="全国机场"></activity>
 
         <activity
-            android:name=".activity.BriefActivity"
+            android:name=".activity.ParkingLotListActivity"
             android:label="认证停车场"></activity>
         <activity
-            android:name=".activity.DetailActivity"
+            android:name=".activity.ParkingLotDetailActivity"
             android:label="详细信息"></activity>
         <activity
             android:name=".activity.PicViewerActivity"

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 import com.network.jiufen.carparking.carparking.R;
 
-public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class ParkingLotDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView detailImage;
     private Button startBooking;
 
@@ -33,10 +33,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId())
         {
             case R.id.detail_image:
-                intent = new Intent(DetailActivity.this,PicViewerActivity.class);
+                intent = new Intent(ParkingLotDetailActivity.this,PicViewerActivity.class);
                 break;
             case R.id.startBooking:
-                intent = new Intent(DetailActivity.this,BookingPrepareActivity.class);
+                intent = new Intent(ParkingLotDetailActivity.this,BookingPrepareActivity.class);
                 intent.putExtra("parkingLotName",parkingLotName);
                 break;
         }

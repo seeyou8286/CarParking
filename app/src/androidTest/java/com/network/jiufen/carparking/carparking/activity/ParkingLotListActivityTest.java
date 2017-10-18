@@ -11,12 +11,12 @@ import org.junit.runner.RunWith;
  * Created by asus on 2017/10/7.
  */
 @RunWith(AndroidJUnit4.class)
-public class BriefActivityTest {
+public class ParkingLotListActivityTest {
     @Rule
-    public ActivityTestRule<BriefActivity> rule = new ActivityTestRule<>(BriefActivity.class);
+    public ActivityTestRule<ParkingLotListActivity> rule = new ActivityTestRule<>(ParkingLotListActivity.class);
 
     @Test
     public void useAppContext() throws Exception {
-        BriefActivity briefActivity = rule.getActivity();
+        ParkingLotListActivity parkingLotListActivity = rule.getActivity();
     }
 }

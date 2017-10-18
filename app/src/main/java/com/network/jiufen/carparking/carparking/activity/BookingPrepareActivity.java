@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import butterknife.BindView;
+
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
 public class BookingPrepareActivity extends AppCompatActivity  implements View.OnClickListener {
@@ -38,15 +40,23 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
     /**
      * Called when the activity is first created.
      */
+    @BindView(R.id.startDialog)
     private TextView startDateTime;
+    @BindView(R.id.endDialog)
     private TextView endDateTime;
+    @BindView(R.id.confirmBooking)
     private Button confirmBooking;
+    @BindView(R.id.numbers)
     private TextView numberPicker;
+    @BindView(R.id.carPlate)
     private EditText carPlate;
+    @BindView(R.id.parkingLotName)
     private TextView placeName;
+    @BindView(R.id.orderFee)
     private TextView orderFee;
-
+    @BindView(R.id.numberAdd)
     private Button numberAdd;
+    @BindView(R.id.numberMinus)
     private Button numberMinus;
 
     private CustomDatePicker startTimeDatePicker;
@@ -58,15 +68,6 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
         setContentView(R.layout.booking_content);
 
         String parkingLotName = this.getIntent().getStringExtra("parkingLotName");
-        startDateTime = (TextView) findViewById(R.id.startDialog);
-        endDateTime = (TextView) findViewById(R.id.endDialog);
-        confirmBooking = (Button) findViewById(R.id.confirmBooking);
-        numberPicker = (TextView) findViewById(R.id.numbers);
-        carPlate = (EditText) findViewById(R.id.carPlate);
-        placeName = (TextView) findViewById(R.id.parkingLotName);
-        numberAdd = (Button) findViewById(R.id.numberAdd);
-        numberMinus = (Button) findViewById(R.id.numberMinus);
-        orderFee = (TextView) findViewById(R.id.orderFee);
         placeName.setText(parkingLotName);
         startDateTime.setOnClickListener(this);
         endDateTime.setOnClickListener(this);
