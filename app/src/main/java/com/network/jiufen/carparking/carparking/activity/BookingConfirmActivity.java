@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.network.jiufen.carparking.carparking.R;
-import com.network.jiufen.carparking.carparking.widget.CustomDatePicker;
 
 import butterknife.BindView;
 
@@ -22,17 +21,17 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
      * Called when the activity is first created.
      */
     @BindView(R.id.parkingLotName)
-    private TextView parkingLotName;
+    TextView parkingLotName;
     @BindView(R.id.categoryValue)
-    private TextView categoryValue;
+    TextView categoryValue;
     @BindView(R.id.startTimeValue)
-    private TextView startTimeValue;
+    TextView startTimeValue;
     @BindView(R.id.endTimeValue)
-    private TextView endTimeValue;
+    TextView endTimeValue;
     @BindView(R.id.plateValue)
-    private TextView plateValue;
+    TextView plateValue;
     @BindView(R.id.confirmBooking)
-    private Button confirmBookingButton;
+    Button confirmBookingButton;
 
     private String phoneNumber;
 

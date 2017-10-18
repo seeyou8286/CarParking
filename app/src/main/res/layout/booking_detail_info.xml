@@ -23,13 +23,27 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
-    <TextView
-        android:id="@+id/parkingLotName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dip"
-        android:paddingLeft="25px"
-        android:textSize="40px"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/navigation_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/navigation_24px"/>
+
+        <TextView
+            android:id="@+id/parkingLotName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"
+            android:layout_toRightOf="@+id/navigation_button"
+            android:paddingLeft="25px"
+            android:textSize="40px"/>
+
+
+    </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"

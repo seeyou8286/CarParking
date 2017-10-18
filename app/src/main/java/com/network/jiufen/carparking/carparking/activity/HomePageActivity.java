@@ -145,8 +145,6 @@ public class HomePageActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
-        selectItem(currentSelectedPosition);
     }
 
 

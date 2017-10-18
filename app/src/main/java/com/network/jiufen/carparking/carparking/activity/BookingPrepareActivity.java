@@ -41,23 +41,23 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
      * Called when the activity is first created.
      */
     @BindView(R.id.startDialog)
-    private TextView startDateTime;
+    TextView startDateTime;
     @BindView(R.id.endDialog)
-    private TextView endDateTime;
+    TextView endDateTime;
     @BindView(R.id.confirmBooking)
-    private Button confirmBooking;
+    Button confirmBooking;
     @BindView(R.id.numbers)
-    private TextView numberPicker;
+    TextView numberPicker;
     @BindView(R.id.carPlate)
-    private EditText carPlate;
+    EditText carPlate;
     @BindView(R.id.parkingLotName)
-    private TextView placeName;
+    TextView placeName;
     @BindView(R.id.orderFee)
-    private TextView orderFee;
+    TextView orderFee;
     @BindView(R.id.numberAdd)
-    private Button numberAdd;
+    Button numberAdd;
     @BindView(R.id.numberMinus)
-    private Button numberMinus;
+    Button numberMinus;
 
     private CustomDatePicker startTimeDatePicker;
     private CustomDatePicker endTimeDatePicker;
