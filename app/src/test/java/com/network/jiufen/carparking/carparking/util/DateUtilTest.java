@@ -11,6 +11,7 @@ import org.junit.Test;
  */
 public class DateUtilTest {
 
+
     @Test
     public void testConvertToString() {
         DateTime dateTime = new DateTime("2020-01-01T00:00:00.000Z", DateTimeZone.UTC);
@@ -18,4 +19,11 @@ public class DateUtilTest {
         System.out.println(dateTime.toString("yyyy-MM-dd HH:mm"));
     }
 
+
+    @Test
+    public void testConvertToDate()
+    {
+        DateTime dateTime = DateUtil.convertFromStringToDateTime("2020-01-01 00:00");
+        System.out.println(dateTime);
+    }
 }

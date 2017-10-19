@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.network.jiufen.carparking.carparking.R;
+import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
+
+import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.PARKING_LOT_NAME;
 
 public class ParkingLotDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView detailImage;
@@ -37,7 +40,7 @@ public class ParkingLotDetailActivity extends AppCompatActivity implements View.
                 break;
             case R.id.startBooking:
                 intent = new Intent(ParkingLotDetailActivity.this,BookingPrepareActivity.class);
-                intent.putExtra("parkingLotName",parkingLotName);
+                intent.putExtra(PARKING_LOT_NAME,parkingLotName);
                 break;
         }
         startActivity(intent);

@@ -33,7 +33,7 @@ public class BookingDetail implements Serializable {
     private Integer parkingDays;
     private String plateNumber; //Compulsory
     private Integer peopleCounts;
-    private String carCounts;
+    private Integer carCounts;
     private String parkingLotName;  //Compulsory
     private String parkingLotAddress; //Compulsory
     private Integer totalPrice;

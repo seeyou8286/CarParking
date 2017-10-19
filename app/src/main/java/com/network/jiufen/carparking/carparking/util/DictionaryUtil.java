@@ -8,6 +8,8 @@ import java.util.Map;
  */
 
 public class DictionaryUtil {
+    public static String PARKING_LOT_NAME = "parkingLotName";
+    public static String BOOKING_DETAIL = "bookingDetail";
 
     public static Map<String,String> dictionary = new HashMap<>();
 

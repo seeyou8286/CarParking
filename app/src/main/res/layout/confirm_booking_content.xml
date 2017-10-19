@@ -14,45 +14,58 @@
         android:text="深圳停车场"/>
 
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:textSize="18sp"
-        android:id="@+id/address"
-        android:text="港城路威力软件园"/>
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/navigation_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/navigation_24px"/>
+        <TextView
+            android:layout_margin="2dip"
+            android:paddingLeft="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:layout_toRightOf="@+id/navigation_button"
+            android:textSize="15sp"
+            android:id="@+id/address"
+            android:text="港城路威力软件园"/>
+    </RelativeLayout>
+
     <View
-        android:layout_marginTop="20px"
+        android:layout_marginTop="5px"
         android:layout_width="match_parent"
         android:layout_height="2px"
         android:background="@color/smssdk_gray" />
 
+    <!--<LinearLayout-->
+        <!--android:padding="15px"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="3"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:text="类型："-->
+            <!--android:textSize="15sp"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_marginLeft="35px"-->
+            <!--android:id="@+id/categoryValue"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@null"-->
+            <!--android:textColor="@color/color5"-->
+            <!--android:layout_weight="1"-->
+            <!--android:lines="1"/>-->
+    <!--</LinearLayout>-->
+
+
     <LinearLayout
-        android:padding="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:fontFamily="sans-serif"
-            android:text="类型："
-            android:textSize="15sp"/>
-
-        <TextView
-            android:layout_marginLeft="35px"
-            android:id="@+id/categoryValue"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:textColor="@color/color5"
-            android:layout_weight="1"
-            android:lines="1"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:padding="25px"
+        android:padding="15px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -65,7 +78,7 @@
 
         <TextView
             android:layout_marginLeft="35px"
-            android:id="@+id/startTimeValue"
+            android:id="@+id/plannedCheckInTime"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -77,7 +90,7 @@
 
 
     <LinearLayout
-        android:padding="25px"
+        android:padding="15px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -90,7 +103,7 @@
 
         <TextView
             android:layout_marginLeft="35px"
-            android:id="@+id/endTimeValue"
+            android:id="@+id/plannedCheckOutTime"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -101,7 +114,54 @@
 
 
     <LinearLayout
-        android:padding="25px"
+        android:padding="15px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="实际入场"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/actualCheckInTime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="15px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="实际出场"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/actualCheckOutTime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:padding="15px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -124,7 +184,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:padding="25px"
+        android:padding="15px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -147,9 +207,114 @@
     </LinearLayout>
 
 
+    <View
+        android:layout_marginTop="5px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/smssdk_gray" />
 
+    <LinearLayout
+        android:padding="15px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="订单状态"
+            android:textSize="15sp"/>
 
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/bookingStatus"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
 
+    <View
+        android:layout_marginTop="5px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/smssdk_gray" />
+
+    <LinearLayout
+        android:padding="15px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="总金额"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/totalPrice"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="15px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="尾款金额"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/leftPrice"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="15px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="已付金额"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/bookingFee"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+    <View
+        android:layout_marginTop="5px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/smssdk_gray" />
 
     <TableRow
         android:layout_alignParentBottom="true"

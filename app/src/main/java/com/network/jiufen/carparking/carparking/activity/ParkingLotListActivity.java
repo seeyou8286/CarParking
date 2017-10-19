@@ -16,17 +16,20 @@ import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.adapter.ParkingLotAdapter;
 import com.network.jiufen.carparking.carparking.entity.ParkingLot;
 import com.network.jiufen.carparking.carparking.util.CustomJsonArrayRequest;
+import com.network.jiufen.carparking.carparking.util.JsonUtil;
 import com.network.jiufen.carparking.carparking.util.MySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.PARKING_LOT_NAME;
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
 public class ParkingLotListActivity extends AppCompatActivity{
@@ -48,7 +51,7 @@ public class ParkingLotListActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ParkingLotListActivity.this,ParkingLotDetailActivity.class);
-                intent.putExtra("parkingLotName",parkingLotsList.get(position).getName());
+                intent.putExtra(PARKING_LOT_NAME,parkingLotsList.get(position).getName());
                 startActivity(intent);
             }
         });
@@ -67,14 +70,10 @@ public class ParkingLotListActivity extends AppCompatActivity{
                         for (int i = 0; i < response.length(); i++) {
                             try {
                                 JSONObject jsonObject = (JSONObject) response.get(i);
-                                String name = jsonObject.get("name").toString();
-                                String distance = jsonObject.get("distance").toString();
-                                String rate = jsonObject.get("rate").toString();
-                                Integer dayPrice = jsonObject.getInt("dayPrice");
-                                String cityName = jsonObject.get("cityName").toString();
-                                ParkingLot parkingLot =
-                                        new ParkingLot(name,distance,rate,dayPrice,airportName,cityName);
+                                ParkingLot parkingLot = JsonUtil.fromJson(jsonObject.toString(), ParkingLot.class);
                                 parkingLotsList.add(parkingLot);
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

@@ -8,9 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.network.jiufen.carparking.carparking.R;
+import com.network.jiufen.carparking.carparking.entity.BookingDetail;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
+import static com.network.jiufen.carparking.carparking.util.DateUtil.DefautDateFormat;
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
 public class BookingConfirmActivity extends AppCompatActivity implements View.OnClickListener {
@@ -22,11 +25,11 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
      */
     @BindView(R.id.parkingLotName)
     TextView parkingLotName;
-    @BindView(R.id.categoryValue)
-    TextView categoryValue;
-    @BindView(R.id.startTimeValue)
+//    @BindView(R.id.categoryValue)
+//    TextView categoryValue;
+    @BindView(R.id.plannedCheckInTime)
     TextView startTimeValue;
-    @BindView(R.id.endTimeValue)
+    @BindView(R.id.plannedCheckOutTime)
     TextView endTimeValue;
     @BindView(R.id.plateValue)
     TextView plateValue;
@@ -39,23 +42,18 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.confirm_booking_content);
+        ButterKnife.bind(this);
+
         Intent intent = this.getIntent();
+        BookingDetail bookingDetail = (BookingDetail)intent.getSerializableExtra("bookingDetail");
 
-        String placeName = intent.getStringExtra("parkingLotName");
-        phoneNumber = intent.getStringExtra("phoneNumber");
-        String startTime = intent.getStringExtra("startTime");
-        String endTime = intent.getStringExtra("endTime");
-        String plateNumber = intent.getStringExtra("plateNumber");
-        Integer carCounts = intent.getIntExtra("carCounts", 0);
 
-        parkingLotName.setText(placeName);
-
+        parkingLotName.setText(bookingDetail.getParkingLotName());
         //TODO
-        categoryValue.setText("室内停车");
-        startTimeValue.setText(startTime);
-        endTimeValue.setText(endTime);
-        plateValue.setText(plateNumber);
-
+//        categoryValue.setText("室内停车");
+        startTimeValue.setText(bookingDetail.getPlanedCheckInTime().toString(DefautDateFormat));
+        endTimeValue.setText(bookingDetail.getPlanedCheckOutTime().toString(DefautDateFormat));
+        plateValue.setText(bookingDetail.getPlateNumber());
         confirmBookingButton.setOnClickListener(this);
 
     }
