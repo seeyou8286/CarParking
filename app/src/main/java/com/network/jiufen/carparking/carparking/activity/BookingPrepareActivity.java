@@ -16,6 +16,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.network.jiufen.carparking.carparking.R;
 import com.network.jiufen.carparking.carparking.entity.BookingDetail;
+import com.network.jiufen.carparking.carparking.entity.ParkingLot;
 import com.network.jiufen.carparking.carparking.enumeration.BookingStatusEnum;
 import com.network.jiufen.carparking.carparking.util.CustomJsonObjectRequest;
 import com.network.jiufen.carparking.carparking.util.DateUtil;
@@ -27,6 +28,8 @@ import com.network.jiufen.carparking.carparking.util.SharedPrefsUtil;
 import com.network.jiufen.carparking.carparking.widget.CustomDatePicker;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +44,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.BOOKING_DETAIL;
+import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.PARKING_LOT;
 import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.PARKING_LOT_NAME;
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
@@ -72,6 +76,7 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
 
     private CustomDatePicker startTimeDatePicker;
     private CustomDatePicker endTimeDatePicker;
+    private ParkingLot parkingLot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,8 +84,8 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
         setContentView(R.layout.booking_content);
 
         ButterKnife.bind(this);
-        String parkingLotName = this.getIntent().getStringExtra(PARKING_LOT_NAME);
-        placeName.setText(parkingLotName);
+        parkingLot = (ParkingLot) this.getIntent().getSerializableExtra(PARKING_LOT);
+        placeName.setText(parkingLot.getName());
         startDateTime.setOnClickListener(this);
         endDateTime.setOnClickListener(this);
         confirmBooking.setOnClickListener(this);
@@ -153,8 +158,9 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
             case R.id.confirmBooking:
                 DateTime planedCheckInTime = DateUtil.convertFromStringToDateTime(startDateTime.getText().toString());
                 DateTime plannedCheckOutTime = DateUtil.convertFromStringToDateTime(endDateTime.getText().toString());
+                int parkingDays = Days.daysBetween(planedCheckInTime, plannedCheckOutTime).getDays();
                 Integer carCount = Integer.valueOf(numberPicker.getText().toString().trim());
-                String parkingLotName = this.getIntent().getStringExtra(PARKING_LOT_NAME);
+                String parkingLotName = parkingLot.getName();
                 String plateNumber = carPlate.getText().toString().trim();
                 String phoneNumber = SharedPrefsUtil.getValue(getApplicationContext(),"phone","");
                 BookingDetail bookingDetail = new BookingDetail();
@@ -165,8 +171,11 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
                 bookingDetail.setPlateNumber(plateNumber);
                 bookingDetail.setPhoneNumber(phoneNumber);
                 bookingDetail.setId(IdGenerator.INSTANCE.nextId());
+                bookingDetail.setParkingDays(parkingDays);
+                bookingDetail.setTotalPrice(parkingDays*20);
+                bookingDetail.setParkingLotAddress(parkingLot.getAddress());
                 //To record the current time
-                bookingDetail.setBookingTime(new DateTime(Locale.CHINA));
+                bookingDetail.setBookingTime(new DateTime().withZone(DateTimeZone.forID("Asia/Shanghai")));
                 //To set the initial status to Booked
                 bookingDetail.setBookingStatus(BookingStatusEnum.Booked);
                 Intent intent = new Intent(BookingPrepareActivity.this,BookingConfirmActivity.class);

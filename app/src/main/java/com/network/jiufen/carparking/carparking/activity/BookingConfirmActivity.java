@@ -35,6 +35,8 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
     TextView plateValue;
     @BindView(R.id.confirmBooking)
     Button confirmBookingButton;
+    @BindView(R.id.address)
+    TextView address;
 
     private String phoneNumber;
 
@@ -54,6 +56,7 @@ public class BookingConfirmActivity extends AppCompatActivity implements View.On
         startTimeValue.setText(bookingDetail.getPlanedCheckInTime().toString(DefautDateFormat));
         endTimeValue.setText(bookingDetail.getPlanedCheckOutTime().toString(DefautDateFormat));
         plateValue.setText(bookingDetail.getPlateNumber());
+        address.setText(bookingDetail.getParkingLotAddress());
         confirmBookingButton.setOnClickListener(this);
 
     }

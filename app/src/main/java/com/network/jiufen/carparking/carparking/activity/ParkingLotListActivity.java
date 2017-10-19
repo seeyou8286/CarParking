@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.PARKING_LOT;
 import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.PARKING_LOT_NAME;
 import static com.network.jiufen.carparking.carparking.util.HttpUtil.WEB_SERVICE_HOST;
 
@@ -51,7 +52,7 @@ public class ParkingLotListActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ParkingLotListActivity.this,ParkingLotDetailActivity.class);
-                intent.putExtra(PARKING_LOT_NAME,parkingLotsList.get(position).getName());
+                intent.putExtra(PARKING_LOT,parkingLotsList.get(position));
                 startActivity(intent);
             }
         });

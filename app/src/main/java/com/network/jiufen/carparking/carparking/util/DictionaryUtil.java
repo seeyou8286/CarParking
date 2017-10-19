@@ -10,6 +10,7 @@ import java.util.Map;
 public class DictionaryUtil {
     public static String PARKING_LOT_NAME = "parkingLotName";
     public static String BOOKING_DETAIL = "bookingDetail";
+    public static String PARKING_LOT = "parkingLot";
 
     public static Map<String,String> dictionary = new HashMap<>();
 

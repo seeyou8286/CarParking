@@ -8,19 +8,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.network.jiufen.carparking.carparking.R;
+import com.network.jiufen.carparking.carparking.entity.ParkingLot;
 import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
 
+import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.PARKING_LOT;
 import static com.network.jiufen.carparking.carparking.util.DictionaryUtil.PARKING_LOT_NAME;
 
 public class ParkingLotDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView detailImage;
     private Button startBooking;
-
+    private ParkingLot parkingLot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_content);
+
+        Intent previousIntent = this.getIntent();
+        parkingLot = (ParkingLot)previousIntent.getSerializableExtra(PARKING_LOT);
+
         detailImage = (ImageView) findViewById(R.id.detail_image);
         detailImage.setClickable(true);
         detailImage.setOnClickListener(this);
@@ -31,7 +37,7 @@ public class ParkingLotDetailActivity extends AppCompatActivity implements View.
 
     @Override
     public void onClick(View view) {
-        String parkingLotName = this.getIntent().getStringExtra("parkingLotName");
+        String parkingLotName = this.getIntent().getStringExtra(PARKING_LOT_NAME);
         Intent intent = null;
         switch (view.getId())
         {
@@ -40,7 +46,7 @@ public class ParkingLotDetailActivity extends AppCompatActivity implements View.
                 break;
             case R.id.startBooking:
                 intent = new Intent(ParkingLotDetailActivity.this,BookingPrepareActivity.class);
-                intent.putExtra(PARKING_LOT_NAME,parkingLotName);
+                intent.putExtra(PARKING_LOT,parkingLot);
                 break;
         }
         startActivity(intent);

@@ -1,6 +1,7 @@
 package com.network.jiufen.carparking.carparking.util;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
@@ -13,7 +14,7 @@ public class DateUtil {
 
     public static DateTime convertFromStringToDateTime(String dateTime) {
         DateTimeFormatter sdf = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
-        return sdf.parseDateTime(dateTime);
+        return sdf.parseDateTime(dateTime).withZoneRetainFields(DateTimeZone.forID("Asia/Shanghai"));
 
     }
 
