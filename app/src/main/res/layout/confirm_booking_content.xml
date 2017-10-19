@@ -10,8 +10,17 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:textSize="18sp"
-        android:id="@+id/parkingLotName" />
+        android:id="@+id/parkingLotName"
+        android:text="深圳停车场"/>
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:id="@+id/address"
+        android:text="港城路威力软件园"/>
     <View
         android:layout_marginTop="20px"
         android:layout_width="match_parent"
@@ -112,9 +121,32 @@
             android:textColor="@color/color5"
             android:layout_weight="1"
             android:lines="1"/>
-
-
     </LinearLayout>
+
+    <LinearLayout
+        android:padding="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif"
+            android:text="停车天数"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_marginLeft="35px"
+            android:id="@+id/parkingDays"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/color5"
+            android:layout_weight="1"
+            android:lines="1"/>
+    </LinearLayout>
+
+
 
 
 
