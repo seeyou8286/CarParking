@@ -40,8 +40,6 @@
             android:layout_toRightOf="@+id/navigation_button"
             android:paddingLeft="25px"
             android:textSize="40px"/>
-
-
     </RelativeLayout>
 
 

@@ -2,6 +2,7 @@ package com.network.jiufen.carparking.carparking.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.math.MathUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -158,7 +159,8 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
             case R.id.confirmBooking:
                 DateTime planedCheckInTime = DateUtil.convertFromStringToDateTime(startDateTime.getText().toString());
                 DateTime plannedCheckOutTime = DateUtil.convertFromStringToDateTime(endDateTime.getText().toString());
-                int parkingDays = Days.daysBetween(planedCheckInTime, plannedCheckOutTime).getDays();
+
+                int parkingDays = Math.abs(planedCheckInTime.getDayOfYear()-plannedCheckOutTime.getDayOfYear())+1;
                 Integer carCount = Integer.valueOf(numberPicker.getText().toString().trim());
                 String parkingLotName = parkingLot.getName();
                 String plateNumber = carPlate.getText().toString().trim();
@@ -172,7 +174,8 @@ public class BookingPrepareActivity extends AppCompatActivity  implements View.O
                 bookingDetail.setPhoneNumber(phoneNumber);
                 bookingDetail.setId(IdGenerator.INSTANCE.nextId());
                 bookingDetail.setParkingDays(parkingDays);
-                bookingDetail.setTotalPrice(parkingDays*20);
+                bookingDetail.setBookingFee(20*carCount);
+                bookingDetail.setTotalPrice(parkingDays*parkingLot.getDayPrice());
                 bookingDetail.setParkingLotAddress(parkingLot.getAddress());
                 //To record the current time
                 bookingDetail.setBookingTime(new DateTime().withZone(DateTimeZone.forID("Asia/Shanghai")));
