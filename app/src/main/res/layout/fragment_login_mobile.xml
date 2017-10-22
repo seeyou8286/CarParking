@@ -44,22 +44,27 @@
         android:inputType="phone" />
     <Button
         android:id="@+id/getcord"
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/cord"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/cord"
         android:visibility="visible"
+        android:background="@drawable/button_style"
         android:text="获取验证码" />
+
+
     <Button
         android:id="@+id/savecord"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cord"
         android:layout_margin="20dp"
-        android:text="验证" />
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:text="登录" />
+
     <TextView
         android:id="@+id/hintmessage"
         android:layout_width="fill_parent"
