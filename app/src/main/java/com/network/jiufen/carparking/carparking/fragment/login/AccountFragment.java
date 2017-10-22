@@ -2,6 +2,7 @@ package com.network.jiufen.carparking.carparking.fragment.login;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -74,6 +75,7 @@ public class AccountFragment extends Fragment {
                                         intent.putExtra("phoneNumber",phoneNumber);
                                         getActivity().startActivity(intent);
                                         Toast.makeText(getActivity(), "密码正确", Toast.LENGTH_LONG).show();
+                                        startActivity(intent);
                                     }else
                                     {
                                         Toast.makeText(getActivity(), "密码不正确", Toast.LENGTH_LONG).show();
