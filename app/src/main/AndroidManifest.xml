@@ -65,6 +65,10 @@
             android:name=".activity.PaymentSuccessActivity"
             android:label="支付成功"></activity>
 
+        <activity
+            android:name=".activity.RegistrationActivity"
+            android:label="注册"></activity>
+
         <meta-data
             android:name="Mob-AppKey"
             android:value="LTAIlqRFpTsP6gRO" />

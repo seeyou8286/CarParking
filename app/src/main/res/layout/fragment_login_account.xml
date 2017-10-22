@@ -57,13 +57,12 @@
         android:text="登录" />
 
     <TextView
-        android:text="注册速到代表你已阅读并同意 速到协议"
-        android:layout_width="match_parent"
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20px"
-        android:gravity="center_horizontal"
-        >
-    </TextView>
+        android:layout_alignRight="@+id/validate"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/validate"
+        android:text="忘记登录密码?"/>
 
 </RelativeLayout>

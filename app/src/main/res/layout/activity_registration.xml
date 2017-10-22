@@ -1,0 +1,141 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/phone_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="手机号码：" />
+
+    <EditText
+        android:id="@+id/account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/phone_text"
+        android:layout_alignBottom="@+id/phone_text"
+        android:layout_marginLeft="60px"
+        android:layout_toRightOf="@+id/phone_text"
+        android:ems="11"
+        android:hint="请输入11位大陆手机号码"
+        android:inputType="phone"
+        android:maxLength="11"></EditText>
+
+    <TextView
+        android:id="@+id/verification_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/phone_text"
+        android:layout_below="@+id/phone_text"
+        android:layout_marginTop="40dp"
+        android:text="验证码：" />
+
+    <EditText
+        android:id="@+id/cord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/verification_text"
+        android:layout_alignBottom="@+id/verification_text"
+        android:layout_alignLeft="@+id/account_name"
+        android:layout_marginTop="20dp"
+        android:ems="4"
+        android:hint="4位数字"
+        android:inputType="phone"
+        android:maxLength="4" />
+
+    <Button
+        android:id="@+id/getcord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cord"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/cord"
+        android:background="@drawable/button_style"
+        android:text="获取验证码"
+        android:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/hintmessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/savecord"
+        android:layout_toRightOf="@+id/cord"
+        android:gravity="center_horizontal"
+        android:text="提示信息"
+        android:textColor="#aaaaaa"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/new_password_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/verification_text"
+        android:layout_below="@+id/verification_text"
+        android:layout_marginTop="40dp"
+        android:text="密码：" />
+
+
+    <EditText
+        android:id="@+id/new_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/new_password_text"
+        android:layout_alignLeft="@+id/cord"
+        android:layout_below="@+id/cord"
+        android:layout_marginTop="10dp"
+        android:ems="11"
+        android:hint="请输入6位以上密码"
+        android:inputType="textPassword"
+        android:maxLength="11" />
+
+
+    <TextView
+        android:id="@+id/new_password_again_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/new_password_text"
+        android:layout_below="@+id/new_password_text"
+        android:layout_marginTop="40dp"
+        android:text="再次输入密码：" />
+
+    <EditText
+        android:id="@+id/new_password_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/new_password_again_text"
+
+        android:layout_alignLeft="@+id/new_password"
+        android:layout_below="@+id/new_password"
+        android:layout_marginTop="10dp"
+        android:ems="11"
+        android:hint="请再次输入相同密码"
+        android:inputType="textPassword"
+        android:maxLength="11" />
+
+
+    <Button
+        android:id="@+id/regist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/new_password_again"
+        android:layout_margin="20dp"
+        android:background="@color/black"
+        android:text="立即注册"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20px"
+        android:gravity="center_horizontal"
+        android:text="注册速到代表你已阅读并同意 速到协议"></TextView>
+</RelativeLayout>

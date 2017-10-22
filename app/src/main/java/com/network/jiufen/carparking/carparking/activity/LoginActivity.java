@@ -2,6 +2,7 @@ package com.network.jiufen.carparking.carparking.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -17,9 +18,16 @@ import com.network.jiufen.carparking.carparking.fragment.login.AccountFragment;
 import com.network.jiufen.carparking.carparking.fragment.login.MobileFragment;
 import com.network.jiufen.carparking.carparking.util.DictionaryUtil;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class LoginActivity extends AppCompatActivity {
+    @BindView(R.id.navigation)
+    BottomNavigationView navigation;
+
     private FragmentManager fm;
     private FragmentTransaction ft;
+    private ActionBar actionBar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -37,10 +45,6 @@ public class LoginActivity extends AppCompatActivity {
                     ft.replace(R.id.fragment_content, new AccountFragment());
                     ft.commit();
                     return true;
-//                case R.id.navigation_regist:
-//                    ft.replace(R.id.fragment_content,new RegistrationFragment());
-//                    ft.commit();
-//                    return true;
             }
             return false;
         }
@@ -51,14 +55,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.log_in);
         actionBar.setHomeAsUpIndicator(R.drawable.clear);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+
+
         initRetrieveMetaData();
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fm = getFragmentManager();
         ft = fm.beginTransaction();
@@ -84,5 +91,19 @@ public class LoginActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.registration:
+                Intent intent = new Intent(this, RegistrationActivity.class);
+                startActivity(intent);
+                return true;
+        }
+        return true;
+    }
+
 
 }
