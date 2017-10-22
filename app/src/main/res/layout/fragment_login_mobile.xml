@@ -44,22 +44,36 @@
         android:inputType="phone" />
     <Button
         android:id="@+id/getcord"
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/cord"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/cord"
         android:visibility="visible"
+        android:background="@drawable/button_style"
         android:text="获取验证码" />
+
+
     <Button
         android:id="@+id/savecord"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cord"
         android:layout_margin="20dp"
-        android:text="验证" />
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:text="登录" />
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/savecord"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/savecord"
+        android:text="忘记登录密码?"/>
+
     <TextView
         android:id="@+id/hintmessage"
         android:layout_width="fill_parent"
@@ -70,15 +84,5 @@
         android:visibility="gone"
         android:text="提示信息"
         android:textColor="#aaaaaa" />
-
-    <TextView
-        android:text="注册速到代表你已阅读并同意 速到协议"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20px"
-        android:gravity="center_horizontal"
-        >
-    </TextView>
 
 </RelativeLayout>
