@@ -175,15 +175,16 @@ public class HomePageActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        if (mDrawerToggle.onOptionsItemSelected(item)) {
-//            return true;
-//        } else if (item.getItemId() == R.id.action_settings) {
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+//        else if (item.getItemId() == R.id.action_settings) {
 //            return true;
 //        }
-//        return super.onOptionsItemSelected(item);
-//    }
+        return super.onOptionsItemSelected(item);
+    }
 
     @OnItemClick(R.id.leftDrawerListView) public void OnItemClick(int position, long id) {
         if (mDrawerLayout.isDrawerOpen(mLinearDrawerLayout)) {

@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cord"
         android:layout_margin="20dp"
-        android:background="@color/black"
+        android:background="@color/colorPrimary"
         android:textColor="@color/white"
         android:text="登录" />
 
