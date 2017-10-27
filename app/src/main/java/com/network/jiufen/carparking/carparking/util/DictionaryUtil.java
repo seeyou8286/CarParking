@@ -24,6 +24,6 @@ public class DictionaryUtil {
     public static final String SUCCESS = "success";
     public static final String ERROR = "error";
 
-
+    public static final String FIRST_OPEN = "first_open";
 
 }
